@@ -3,6 +3,7 @@ import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
+    mode: "dark",
     primary: {
       main: "#000030",
     },
@@ -15,6 +16,33 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "var(--font-roboto)",
+    h1: {
+      fontSize: 56,
+      fontWeight: 400,
+    },
+    h2: {
+      fontSize: 42,
+    },
+  },
+  components: {
+    MuiAppBar: {
+      styleOverrides: {
+        colorDefault: {
+          background: "#000030",
+        },
+        colorPrimary: {
+          background: "#000030",
+        },
+      },
+    },
+    MuiButton: {
+      defaultProps: {
+        sx: {
+          borderRadius: "1000px",
+          textTransform: "none",
+        },
+      },
+    },
   },
 });
 
