@@ -1,7 +1,20 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { Button, Toolbar } from "@mui/material";
+import { Header } from "./header";
 
 export default function Home() {
+  return (
+    <div>
+      <Header />
+      <Content />
+    </div>
+  );
+}
+
+const callToAction = "Try it now";
+
+const Content = () => {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -13,6 +26,7 @@ export default function Home() {
           height={20}
           priority
         />
+        <Button variant="contained">{callToAction}</Button>
         <div className={styles.intro}>
           <h1>To get started, edit the page.tsx file.</h1>
           <p>
@@ -63,4 +77,4 @@ export default function Home() {
       </main>
     </div>
   );
-}
+};
