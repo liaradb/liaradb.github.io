@@ -1,7 +1,0 @@
-baseURL = 'https://liaradb.github.io/'
-languageCode = 'en-us'
-title = 'LiaraDB'
-theme = 'liaradb'
-[caches]
-  [caches.images]
-    dir = ':cacheDir/images'
