@@ -15,17 +15,13 @@ export const Example = () => {
       padding={2}
     >
       <SyntaxHighlighter style={{ ...a11yDark }}>
-        {handleEvents.toString()}
+        {example.trim()}
       </SyntaxHighlighter>
     </Box>
   );
 };
 
-async function getEvents(id: string) {
-  console.log(id);
-  return [];
-}
-
+const example = `
 async function handleEvents(id: string) {
   const events = await getEvents(id);
 
@@ -37,3 +33,4 @@ async function handleEvents(id: string) {
     };
   }, {});
 }
+`;
