@@ -1,3 +1,4 @@
+import { FC } from "react";
 import {
   Box,
   Button,
@@ -63,40 +64,46 @@ const Content = () => {
       <Box marginY={4}>
         <Container>
           <Grid container spacing={2}>
-            <Grid size={{ xs: 12, md: 4 }} component={Card}>
-              <CardContent>
-                <Typography variant="h5">Features</Typography>
-              </CardContent>
-              <CardActions>
-                <Button color="info" size="medium" endIcon={<ArrowForward />}>
-                  Learn More
-                </Button>
-              </CardActions>
+            <Grid size={{ xs: 12, md: 4 }}>
+              <Features />
             </Grid>
-            <Grid size={{ xs: 12, md: 4 }} component={Card}>
-              <CardContent>
-                <Typography variant="h5">Use cases</Typography>
-              </CardContent>
-              <CardActions>
-                <Button color="info" size="medium" endIcon={<ArrowForward />}>
-                  Learn More
-                </Button>
-              </CardActions>
+            <Grid size={{ xs: 12, md: 4 }}>
+              <UseCases />
             </Grid>
-            <Grid size={{ xs: 12, md: 4 }} component={Card}>
-              <CardContent>
-                <Typography variant="h5">Docs</Typography>
-              </CardContent>
-              <CardActions>
-                <Button color="info" size="medium" endIcon={<ArrowForward />}>
-                  Learn More
-                </Button>
-              </CardActions>
+            <Grid size={{ xs: 12, md: 4 }}>
+              <Docs />
             </Grid>
           </Grid>
         </Container>
       </Box>
     </Box>
+  );
+};
+
+const Features = () => {
+  return <Topic title="Features" />;
+};
+
+const UseCases = () => {
+  return <Topic title="Use cases" />;
+};
+
+const Docs = () => {
+  return <Topic title="Docs" />;
+};
+
+const Topic: FC<{ title: string }> = ({ title }) => {
+  return (
+    <Card>
+      <CardContent>
+        <Typography variant="h5">{title}</Typography>
+      </CardContent>
+      <CardActions>
+        <Button color="info" size="medium" endIcon={<ArrowForward />}>
+          Learn More
+        </Button>
+      </CardActions>
+    </Card>
   );
 };
 
