@@ -1,3 +1,5 @@
+import { AppPage } from "@/components";
+
 export default function Page() {
-  return <div>Get started</div>;
+  return <AppPage title="Get started"></AppPage>;
 }

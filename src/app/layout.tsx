@@ -37,7 +37,7 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <Header />
-            {children}
+            <Box flexGrow={1}>{children}</Box>
             <Footer />
           </ThemeProvider>
         </AppRouterCacheProvider>
