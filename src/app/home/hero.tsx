@@ -1,6 +1,8 @@
 import { Box, Button, Card, Container, Grid, Typography } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
 
+import { Example } from "./example";
+
 export const Hero = () => {
   return (
     <Box bgcolor="black" paddingY={4}>
@@ -58,28 +60,5 @@ const Pricing = () => {
     <Button variant="outlined" color="info" size="large">
       {pricing}
     </Button>
-  );
-};
-
-async function getEvents(_id: string) {
-  return [];
-}
-async function handleEvents(id: string) {
-  const events = await getEvents(id);
-
-  events.reduce((prev, event) => {
-    return {
-      ...prev,
-      // ... apply events
-      event,
-    };
-  }, {});
-}
-
-const Example = () => {
-  return (
-    <Box component="pre" margin={2}>
-      <code>{handleEvents.toString()}</code>
-    </Box>
   );
 };
