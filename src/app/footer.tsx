@@ -1,47 +1,42 @@
-import { Box, Button, Container, Divider } from "@mui/material";
-import { FC } from "react";
+import { Box, Container, Divider, Grid } from "@mui/material";
+
+import { Copyright } from "./copyright";
+import { FooterLinks } from "./footer_links";
 
 export const Footer = () => {
   return (
     <Box>
       <Divider />
-      <Box paddingY={2} display="flex" alignItems="start" component={Container}>
-        <Box flexGrow={1}>
-          <Copyright />
-        </Box>
-        <Box>
-          <Links
-            links={[
-              { title: "About us", href: "/about-us" },
-              { title: "License", href: "/license" },
-            ]}
-          />
-        </Box>
+      <Box paddingY={2} component={Container}>
+        <Content />
       </Box>
     </Box>
   );
 };
 
-const year = new Date().getFullYear();
-const company = "Sean Johnson";
-const copyright = `${company} ${year}`;
-
-const Copyright = () => {
-  return <>&copy; {copyright}</>;
+const Content = () => {
+  return (
+    <Grid container>
+      <Grid size={{ xs: 12, sm: 4 }}>
+        <Copyright />
+      </Grid>
+      <Grid
+        container
+        size={{ xs: 12, sm: 8 }}
+        component={Box}
+        justifyContent="end"
+      >
+        <FooterLinks
+          links={[
+            { title: "About us", href: "/about-us" },
+            { title: "Get started", href: "/get-started" },
+            { title: "Documentation", href: "/docs" },
+            { title: "Use cases", href: "/use-cases" },
+            { title: "Features", href: "/features" },
+            { title: "License", href: "/license" },
+          ]}
+        />
+      </Grid>
+    </Grid>
+  );
 };
-
-const Links: FC<{ links: { href: string; title: string }[] }> = ({ links }) => (
-  <Box component="ul" padding={0} margin={0}>
-    {links.map(({ href, title }) => (
-      <Link href={href} title={title} key={title} />
-    ))}
-  </Box>
-);
-
-const Link: FC<{ href: string; title: string }> = ({ href, title }) => (
-  <Box component="li" padding={0} sx={{ listStyleType: "none" }}>
-    <Button variant="text" LinkComponent="a" color="info" href={href}>
-      {title}
-    </Button>
-  </Box>
-);
