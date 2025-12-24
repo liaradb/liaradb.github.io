@@ -9,15 +9,25 @@ import {
 } from "@mui/material";
 import { FC, ReactNode } from "react";
 
-export const Topic: FC<{ title: string; icon: ReactNode | ReactNode[] }> = ({
-  title,
-  icon,
-}) => {
+export const Topic: FC<{
+  title: string;
+  icon: ReactNode | ReactNode[];
+  items: string[];
+}> = ({ title, icon, items }) => {
   return (
-    <Card>
-      <Box component={CardContent} display="flex" alignItems="center" gap={1}>
-        {icon}
-        <Typography variant="h5">{title}</Typography>
+    <Box component={Card} display="flex" flexDirection="column" flexGrow={1}>
+      <Box component={CardContent} flexGrow={1}>
+        <Box display="flex" alignItems="center" gap={1}>
+          {icon}
+          <Typography variant="h5">{title}</Typography>
+        </Box>
+        <Box component="ul" margin={2} padding={0}>
+          {items.map((item) => (
+            <Box component="li" key={item}>
+              {item}
+            </Box>
+          ))}
+        </Box>
       </Box>
       <Box
         component={CardActions}
@@ -30,6 +40,6 @@ export const Topic: FC<{ title: string; icon: ReactNode | ReactNode[] }> = ({
           Learn More
         </Button>
       </Box>
-    </Card>
+    </Box>
   );
 };
