@@ -25,16 +25,6 @@ const theme = createTheme({
     },
   },
   components: {
-    MuiAppBar: {
-      styleOverrides: {
-        colorDefault: {
-          background: "#000030",
-        },
-        colorPrimary: {
-          background: "#000030",
-        },
-      },
-    },
     MuiButton: {
       defaultProps: {
         sx: {
