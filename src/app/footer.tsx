@@ -1,11 +1,11 @@
-import { Box, Button, Divider } from "@mui/material";
+import { Box, Button, Container, Divider } from "@mui/material";
 import { FC } from "react";
 
 export const Footer = () => {
   return (
     <Box>
       <Divider />
-      <Box padding={2} display="flex" alignItems="start">
+      <Box paddingY={2} display="flex" alignItems="start" component={Container}>
         <Box flexGrow={1}>
           <Copyright />
         </Box>
