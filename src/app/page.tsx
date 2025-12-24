@@ -5,6 +5,7 @@ import {
   CardActions,
   CardContent,
   Container,
+  Divider,
   Grid,
   Typography,
 } from "@mui/material";
@@ -14,10 +15,11 @@ import { Header } from "./header";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Header />
       <Content />
-    </div>
+      <Footer />
+    </>
   );
 }
 
@@ -26,11 +28,11 @@ const pricing = "Pricing";
 
 const Content = () => {
   return (
-    <Box>
-      <Box bgcolor="black" paddingY={4} marginBottom={4}>
+    <Box flexGrow={1}>
+      <Box bgcolor="black" paddingY={4}>
         <Container>
           <Grid container spacing={2}>
-            <Grid size={6} padding={2}>
+            <Grid size={{ xs: 12, md: 6 }} padding={2}>
               <Typography variant="h1">LiaraDB</Typography>
               <Typography variant="subtitle1" sx={{ fontSize: 36 }}>
                 Event Sourcing database
@@ -49,44 +51,67 @@ const Content = () => {
                 </Button>
               </Box>
             </Grid>
-            <Grid size={6} component={Card} variant="outlined"></Grid>
+            <Grid
+              size={{ xs: 12, md: 6 }}
+              component={Card}
+              variant="outlined"
+              minHeight={200}
+            ></Grid>
           </Grid>
         </Container>
       </Box>
-      <Container>
-        <Grid container spacing={2}>
-          <Grid size={4} component={Card}>
-            <CardContent>
-              <Typography variant="h5">Features</Typography>
-            </CardContent>
-            <CardActions>
-              <Button color="info" size="medium" endIcon={<ArrowForward />}>
-                Learn More
-              </Button>
-            </CardActions>
+      <Box marginY={4}>
+        <Container>
+          <Grid container spacing={2}>
+            <Grid size={{ xs: 12, md: 4 }} component={Card}>
+              <CardContent>
+                <Typography variant="h5">Features</Typography>
+              </CardContent>
+              <CardActions>
+                <Button color="info" size="medium" endIcon={<ArrowForward />}>
+                  Learn More
+                </Button>
+              </CardActions>
+            </Grid>
+            <Grid size={{ xs: 12, md: 4 }} component={Card}>
+              <CardContent>
+                <Typography variant="h5">Use cases</Typography>
+              </CardContent>
+              <CardActions>
+                <Button color="info" size="medium" endIcon={<ArrowForward />}>
+                  Learn More
+                </Button>
+              </CardActions>
+            </Grid>
+            <Grid size={{ xs: 12, md: 4 }} component={Card}>
+              <CardContent>
+                <Typography variant="h5">Docs</Typography>
+              </CardContent>
+              <CardActions>
+                <Button color="info" size="medium" endIcon={<ArrowForward />}>
+                  Learn More
+                </Button>
+              </CardActions>
+            </Grid>
           </Grid>
-          <Grid size={4} component={Card}>
-            <CardContent>
-              <Typography variant="h5">Use cases</Typography>
-            </CardContent>
-            <CardActions>
-              <Button color="info" size="medium" endIcon={<ArrowForward />}>
-                Learn More
-              </Button>
-            </CardActions>
-          </Grid>
-          <Grid size={4} component={Card}>
-            <CardContent>
-              <Typography variant="h5">Docs</Typography>
-            </CardContent>
-            <CardActions>
-              <Button color="info" size="medium" endIcon={<ArrowForward />}>
-                Learn More
-              </Button>
-            </CardActions>
-          </Grid>
-        </Grid>
-      </Container>
+        </Container>
+      </Box>
+    </Box>
+  );
+};
+
+const Footer = () => {
+  return (
+    <Box>
+      <Divider />
+      <Box
+        padding={2}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        Footer
+      </Box>
     </Box>
   );
 };
