@@ -38,7 +38,7 @@ const Subtitle = () => (
   </Typography>
 );
 
-const callToAction = "Try it now";
+const callToAction = "Get started";
 
 const TryItNow = () => {
   return (
@@ -47,17 +47,25 @@ const TryItNow = () => {
       color="info"
       size="large"
       endIcon={<ArrowForward />}
+      LinkComponent="a"
+      href="/getstarted"
     >
       {callToAction}
     </Button>
   );
 };
 
-const pricing = "Pricing";
+const pricing = "Docs";
 
 const Pricing = () => {
   return (
-    <Button variant="outlined" color="info" size="large">
+    <Button
+      variant="outlined"
+      color="info"
+      size="large"
+      LinkComponent="a"
+      href="/docs"
+    >
       {pricing}
     </Button>
   );

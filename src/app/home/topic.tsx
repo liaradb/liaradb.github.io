@@ -13,7 +13,8 @@ export const Topic: FC<{
   title: string;
   icon: ReactNode | ReactNode[];
   items: string[];
-}> = ({ title, icon, items }) => {
+  href: string;
+}> = ({ title, icon, items, href }) => {
   return (
     <Box component={Card} display="flex" flexDirection="column" flexGrow={1}>
       <Box component={CardContent} flexGrow={1}>
@@ -36,7 +37,13 @@ export const Topic: FC<{
         justifyContent="end"
         gap={1}
       >
-        <Button color="info" size="medium" endIcon={<ArrowForward />}>
+        <Button
+          color="info"
+          size="medium"
+          endIcon={<ArrowForward />}
+          LinkComponent="a"
+          href={href}
+        >
           Learn More
         </Button>
       </Box>

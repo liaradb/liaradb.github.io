@@ -7,6 +7,7 @@ export const Features = () => {
       title="Features"
       icon={<Build />}
       items={["Event native database", "Transactional inserts"]}
+      href="/features"
     />
   );
 };
