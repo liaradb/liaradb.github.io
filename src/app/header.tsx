@@ -4,6 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import Link from "next/link";
 
 const title = "LiaraDB";
 
@@ -21,8 +22,24 @@ export function Header() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            {title}
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{
+              flexGrow: 1,
+              "& > a": {
+                textDecoration: "none",
+                color: "inherit",
+                "&:visited": {
+                  color: "inherit",
+                },
+                "&:active": {
+                  color: "inherit",
+                },
+              },
+            }}
+          >
+            <Link href="/">{title}</Link>
           </Typography>
         </Toolbar>
       </AppBar>

@@ -12,8 +12,8 @@ export const Footer = () => {
         <Box>
           <Links
             links={[
-              { title: "About us", href: "/" },
-              { title: "License", href: "/" },
+              { title: "About us", href: "/about-us" },
+              { title: "License", href: "/license" },
             ]}
           />
         </Box>

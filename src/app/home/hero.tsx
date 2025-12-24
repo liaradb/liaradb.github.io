@@ -48,7 +48,7 @@ const TryItNow = () => {
       size="large"
       endIcon={<ArrowForward />}
       LinkComponent="a"
-      href="/getstarted"
+      href="/get-started"
     >
       {callToAction}
     </Button>

@@ -3,6 +3,11 @@ import { Topic } from "./topic";
 
 export const UseCases = () => {
   return (
-    <Topic title="Use cases" icon={<Lightbulb />} items={[]} href="/usecases" />
+    <Topic
+      title="Use cases"
+      icon={<Lightbulb />}
+      items={[]}
+      href="/use-cases"
+    />
   );
 };
