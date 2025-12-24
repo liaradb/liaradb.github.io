@@ -1,4 +1,4 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Divider, Typography } from "@mui/material";
 import { FC, ReactNode } from "react";
 
 export const AppPage: FC<{
@@ -6,11 +6,12 @@ export const AppPage: FC<{
   title: string;
 }> = ({ children, title }) => {
   return (
-    <Container>
-      <Box>
+    <>
+      <Box component={Container} paddingY={2}>
         <Typography variant="h1">{title}</Typography>
       </Box>
-      <Box>{children}</Box>
-    </Container>
+      <Divider />
+      <Box component={Container}>{children}</Box>
+    </>
   );
 };

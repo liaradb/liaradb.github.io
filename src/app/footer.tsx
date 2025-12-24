@@ -28,6 +28,7 @@ const Content = () => {
       >
         <FooterLinks
           links={[
+            { title: "LiaraDB", href: "/" },
             { title: "About us", href: "/about-us" },
             { title: "Get started", href: "/get-started" },
             { title: "Documentation", href: "/docs" },
