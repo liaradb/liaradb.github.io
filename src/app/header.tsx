@@ -6,6 +6,8 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 
+import { HeaderIcons } from "./header_icons";
+
 const title = "LiaraDB";
 
 export function Header() {
@@ -41,6 +43,7 @@ export function Header() {
           >
             <Link href="/">{title}</Link>
           </Typography>
+          <HeaderIcons />
         </Toolbar>
       </AppBar>
     </Box>
