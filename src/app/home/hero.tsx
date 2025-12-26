@@ -1,5 +1,5 @@
-import { Box, Card, Container, Grid, Typography } from "@mui/material";
-import { ArrowForward } from "@mui/icons-material";
+import { Box, Button, Card, Container, Grid, Typography } from "@mui/material";
+import { ArrowForward, GitHub } from "@mui/icons-material";
 
 import { LinkButton } from "@/components";
 
@@ -15,7 +15,7 @@ export const Hero = () => {
             <Subtitle />
             <Box display="flex" gap={1}>
               <TryItNow />
-              <Pricing />
+              <ViewOnGitHub />
             </Box>
           </Grid>
           <Grid
@@ -56,12 +56,20 @@ const TryItNow = () => {
   );
 };
 
-const pricing = "Docs";
+const viewOnGitHub = "View on GitHub";
 
-const Pricing = () => {
+const ViewOnGitHub = () => {
   return (
-    <LinkButton variant="outlined" color="info" size="large" href="/docs">
-      {pricing}
-    </LinkButton>
+    <Button
+      variant="outlined"
+      color="info"
+      size="large"
+      href="https://github.com/liaradb"
+      LinkComponent="a"
+      target="_blank"
+      endIcon={<GitHub />}
+    >
+      {viewOnGitHub}
+    </Button>
   );
 };
