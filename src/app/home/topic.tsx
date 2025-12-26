@@ -37,7 +37,7 @@ export const Topic: FC<{
           endIcon={<ArrowForward />}
           href={href}
         >
-          Learn More
+          Learn more
         </LinkButton>
       </Box>
     </Box>
