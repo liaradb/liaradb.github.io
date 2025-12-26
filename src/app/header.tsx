@@ -13,7 +13,7 @@ const title = "LiaraDB";
 export function Header() {
   return (
     <Box>
-      <AppBar position="static" enableColorOnDark>
+      <AppBar position="fixed" enableColorOnDark>
         <Toolbar>
           <IconButton
             size="large"
@@ -46,6 +46,7 @@ export function Header() {
           <HeaderIcons />
         </Toolbar>
       </AppBar>
+      <Toolbar />
     </Box>
   );
 }
