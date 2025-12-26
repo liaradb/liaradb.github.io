@@ -1,4 +1,4 @@
-import { Box, Container, Divider, Typography } from "@mui/material";
+import { Box, Container, Divider, Toolbar, Typography } from "@mui/material";
 import { FC, ReactNode } from "react";
 
 const baseTitle = "LiaraDB";
@@ -11,6 +11,9 @@ export const AppPage: FC<{
 }> = ({ children, title }) => {
   return (
     <>
+      <Box>
+        <Toolbar />
+      </Box>
       <Box component={Container} paddingY={2}>
         <Typography variant="h1">{title}</Typography>
       </Box>

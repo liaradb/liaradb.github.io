@@ -10,7 +10,7 @@ import { HeaderIcons } from "./header_icons";
 
 const title = "LiaraDB";
 
-export function Header() {
+export const Header = () => {
   return (
     <Box>
       <AppBar position="fixed" enableColorOnDark>
@@ -46,7 +46,6 @@ export function Header() {
           <HeaderIcons />
         </Toolbar>
       </AppBar>
-      <Toolbar />
     </Box>
   );
-}
+};
