@@ -1,1 +1,1 @@
-export { AppPage } from "./app_page";
+export { AppPage, appTitle } from "./app_page";

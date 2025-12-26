@@ -1,5 +1,13 @@
-import { AppPage } from "@/components";
+import { Metadata } from "next";
+
+import { AppPage, appTitle } from "@/components";
+
+const title = "About us";
+
+export const metadata: Metadata = {
+  title: appTitle(title),
+};
 
 export default function Page() {
-  return <AppPage title="About us"></AppPage>;
+  return <AppPage title={title}></AppPage>;
 }
