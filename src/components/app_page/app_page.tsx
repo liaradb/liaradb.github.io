@@ -8,7 +8,8 @@ export const appTitle = (title: string) => `${title} - ${baseTitle}`;
 export const AppPage: FC<{
   children?: ReactNode | ReactNode[];
   title: string;
-}> = ({ children, title }) => {
+  subTitle?: string;
+}> = ({ children, title, subTitle }) => {
   return (
     <>
       <Box>
@@ -16,9 +17,18 @@ export const AppPage: FC<{
       </Box>
       <Box component={Container} paddingY={2}>
         <Typography variant="h1">{title}</Typography>
+        {subTitle && <Typography variant="h5">{subTitle}</Typography>}
       </Box>
       <Divider />
-      <Box component={Container}>{children}</Box>
+      <Box
+        component={Container}
+        display="flex"
+        flexDirection="column"
+        gap={2}
+        paddingY={2}
+      >
+        {children}
+      </Box>
     </>
   );
 };

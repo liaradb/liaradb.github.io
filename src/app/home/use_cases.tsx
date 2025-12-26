@@ -6,7 +6,11 @@ export const UseCases = () => {
     <Topic
       title="Use cases"
       icon={<Lightbulb />}
-      items={[]}
+      items={[
+        "Domain Driven Design",
+        "Event Sourcing",
+        "Simple reporting and analytics",
+      ]}
       href="/use-cases"
     />
   );

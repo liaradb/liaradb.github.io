@@ -6,7 +6,13 @@ export const Features = () => {
     <Topic
       title="Features"
       icon={<Build />}
-      items={["Event native database", "Transactional inserts"]}
+      items={[
+        "Event native database",
+        "Event-Log and Key-Value storage",
+        "Aggregate snapshots",
+        "Transactional inserts",
+        "Distributed database",
+      ]}
       href="/features"
     />
   );
