@@ -1,5 +1,7 @@
-import { Box, Button, Card, Container, Grid, Typography } from "@mui/material";
+import { Box, Card, Container, Grid, Typography } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
+
+import { LinkButton } from "@/components";
 
 import { Example } from "./example";
 
@@ -42,16 +44,15 @@ const callToAction = "Get started";
 
 const TryItNow = () => {
   return (
-    <Button
+    <LinkButton
       variant="contained"
       color="info"
       size="large"
       endIcon={<ArrowForward />}
-      LinkComponent="a"
       href="/get-started"
     >
       {callToAction}
-    </Button>
+    </LinkButton>
   );
 };
 
@@ -59,14 +60,8 @@ const pricing = "Docs";
 
 const Pricing = () => {
   return (
-    <Button
-      variant="outlined"
-      color="info"
-      size="large"
-      LinkComponent="a"
-      href="/docs"
-    >
+    <LinkButton variant="outlined" color="info" size="large" href="/docs">
       {pricing}
-    </Button>
+    </LinkButton>
   );
 };

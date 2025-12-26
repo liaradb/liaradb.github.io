@@ -1,12 +1,6 @@
+import { LinkButton } from "@/components";
 import { ArrowForward } from "@mui/icons-material";
-import {
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardActions, CardContent, Typography } from "@mui/material";
 import { FC, ReactNode } from "react";
 
 export const Topic: FC<{
@@ -37,15 +31,14 @@ export const Topic: FC<{
         justifyContent="end"
         gap={1}
       >
-        <Button
+        <LinkButton
           color="info"
           size="medium"
           endIcon={<ArrowForward />}
-          LinkComponent="a"
           href={href}
         >
           Learn More
-        </Button>
+        </LinkButton>
       </Box>
     </Box>
   );
