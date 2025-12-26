@@ -16,13 +16,13 @@ export const Footer = () => {
 
 const Content = () => {
   return (
-    <Grid container>
-      <Grid size={{ xs: 12, sm: 4 }}>
+    <Grid container spacing={1}>
+      <Grid size={{ xs: 12, md: 4 }}>
         <Copyright />
       </Grid>
       <Grid
         container
-        size={{ xs: 12, sm: 8 }}
+        size={{ xs: 12, md: 8 }}
         component={Box}
         justifyContent="end"
       >

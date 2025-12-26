@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Link } from "@mui/material";
 import { FC } from "react";
 
 export const FooterLinks: FC<{
@@ -9,20 +9,21 @@ export const FooterLinks: FC<{
     component="ul"
     padding={0}
     margin={0}
+    width="100%"
     sx={{
       columnCount: columns,
     }}
   >
     {links.map(({ href, title }) => (
-      <Link href={href} title={title} key={title} />
+      <LinkItem href={href} title={title} key={title} />
     ))}
   </Box>
 );
 
-const Link: FC<{ href: string; title: string }> = ({ href, title }) => (
-  <Box component="li" padding={0} sx={{ listStyleType: "none" }}>
-    <Button variant="text" LinkComponent="a" color="info" href={href}>
+const LinkItem: FC<{ href: string; title: string }> = ({ href, title }) => (
+  <Box component="li" padding={0} margin={0} sx={{ listStyleType: "none" }}>
+    <Link color="info" href={href} sx={{ textDecoration: "none" }}>
       {title}
-    </Button>
+    </Link>
   </Box>
 );
