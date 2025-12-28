@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { ThemeProvider } from "@mui/material/styles";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import { Box, CssBaseline } from "@mui/material";
+
+import { Footer, Header } from "@/components/layout";
 
 import theme from "../theme";
-import { Box, CssBaseline } from "@mui/material";
-import { Header } from "./header";
-import { Footer } from "./footer";
+
 import { WebSiteJson } from "./web_site_json";
 
 const roboto = Roboto({
