@@ -7,6 +7,7 @@ import theme from "../theme";
 import { Box, CssBaseline } from "@mui/material";
 import { Header } from "./header";
 import { Footer } from "./footer";
+import { WebSiteJson } from "./web_site_json";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -53,6 +54,7 @@ export default function RootLayout({
             <Footer />
           </ThemeProvider>
         </AppRouterCacheProvider>
+        <WebSiteJson />
       </Box>
     </html>
   );
