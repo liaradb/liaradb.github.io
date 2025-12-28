@@ -2,6 +2,8 @@ import { Metadata } from "next";
 
 import { AppPage, appTitle } from "@/components";
 
+import Docs from "./docs.mdx";
+
 const title = "Docs";
 
 export const metadata: Metadata = {
@@ -9,5 +11,11 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <AppPage title={title}></AppPage>;
+  return (
+    <AppPage title={title}>
+      <div>
+        <Docs />
+      </div>
+    </AppPage>
+  );
 }

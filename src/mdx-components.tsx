@@ -1,6 +1,8 @@
 import { Box, Divider, Typography } from "@mui/material";
 import type { MDXComponents } from "mdx/types";
+
 import { LinkLink } from "./components";
+import { MdxSyntax } from "./mdx_syntax";
 
 const components = {
   h1: ({ children }) => {
@@ -50,6 +52,9 @@ const components = {
         {children}
       </LinkLink>
     );
+  },
+  code: (props) => {
+    return <MdxSyntax {...props} />;
   },
 } as MDXComponents;
 
