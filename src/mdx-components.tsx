@@ -2,7 +2,8 @@ import { Box, Divider, Typography } from "@mui/material";
 import type { MDXComponents } from "mdx/types";
 
 import { LinkLink } from "./components";
-import { MdxSyntax, MdxSyntaxPre } from "./mdx_syntax";
+import { MdxSyntax } from "./mdx_syntax";
+import { MdxSyntaxPre } from "./mdx_syntax_pre";
 
 const components = {
   h1: ({ children }) => {

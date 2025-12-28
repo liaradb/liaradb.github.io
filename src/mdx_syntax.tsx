@@ -1,8 +1,12 @@
-import { FC, Fragment } from "react";
+"use client";
+
+import { FC, Fragment, useEffect, useMemo } from "react";
 import { Box } from "@mui/material";
 import { grey, yellow } from "@mui/material/colors";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+
+import { useCopyContext } from "./components";
 
 export const MdxSyntax: FC<{
   children: string | string[];
@@ -10,9 +14,20 @@ export const MdxSyntax: FC<{
 }> = ({ children, className }) => {
   const match = /language-(\w+)/.exec(className || "");
   const language = match?.[1];
+
+  const text = useMemo(() => {
+    return typeof children === "object" ? children.join("\n") : children;
+  }, [children]);
+
+  const { setValue } = useCopyContext();
+
+  useEffect(() => {
+    setValue(text);
+  }, [setValue, text]);
+
   return language ? (
     <SyntaxHighlighter
-      PreTag={Fragment}
+      PreTag={PreTag}
       style={{ ...a11yDark }}
       language={language}
     >
@@ -29,19 +44,7 @@ export const MdxSyntax: FC<{
   );
 };
 
-export const MdxSyntaxPre: FC<{ children: string | string[] }> = ({
-  children,
-}) => {
-  return (
-    <Box
-      sx={{
-        background: "black",
-      }}
-      margin={0}
-      padding={2}
-      component="pre"
-    >
-      {children}
-    </Box>
-  );
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const PreTag: FC<{ style: unknown }> = ({ style: _style, ...props }) => {
+  return <Fragment {...props} />;
 };
