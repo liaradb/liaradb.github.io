@@ -1,0 +1,25 @@
+Architecture trends are different than they were 25 years ago. Domain Driven Design has given way to Microservices and Event Streams, rather than large monolithic SQL Databases. There is a simpler way, but our infrastructure needs to support it.
+
+## Event-Log storage
+
+Data is stored as an append only log of events.
+
+## Key-Value storage
+
+Data is stored in key-value pairs.
+
+## Aggregate snapshots
+
+In Event Sourcing, Aggregates are stored not as records, but as streams of Events. The current state of an Aggregate, is found by replaying events from the beginning. If the streams become long, we can store an image of the current state, so we can replay where we left off.
+
+## Transactional inserts
+
+Events that are appended at the same time are guaranteed to commit together.
+
+## Distributed database
+
+LiaraDB can be run on multiple servers to increase reliability, availability, and throughput.
+
+## gRPC based communication
+
+Communication to the database, and between servers, is done via gRPC, a fast, secure, and modern protocol.
