@@ -1,12 +1,11 @@
 import { AppPage } from "@/components";
-import Component from "./mdx-page.mdx";
+
+import Entries from "./entries";
 
 export default function Page() {
   return (
-    <AppPage title="MDX">
-      <div>
-        <Component />
-      </div>
+    <AppPage title="Blog">
+      <Entries />
     </AppPage>
   );
 }

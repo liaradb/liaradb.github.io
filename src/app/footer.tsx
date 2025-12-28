@@ -34,6 +34,7 @@ const Content = () => {
             { title: "Documentation", href: "/docs" },
             { title: "Use cases", href: "/use-cases" },
             { title: "Features", href: "/features" },
+            { title: "Blog", href: "/blog" },
             { title: "License", href: "/license" },
           ]}
         />

@@ -50,7 +50,9 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <Header />
-            <Box flexGrow={1}>{children}</Box>
+            <Box flexGrow={1} marginBottom={2}>
+              {children}
+            </Box>
             <Footer />
           </ThemeProvider>
         </AppRouterCacheProvider>

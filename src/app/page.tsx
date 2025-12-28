@@ -1,7 +1,8 @@
 import { Box, Container, Toolbar } from "@mui/material";
 
-import { Topics } from "./home/topics";
+import { Blog } from "./home/blog";
 import { Hero } from "./home/hero";
+import { Topics } from "./home/topics";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
           <Topics />
         </Container>
       </Box>
+      <Blog />
     </>
   );
 }
