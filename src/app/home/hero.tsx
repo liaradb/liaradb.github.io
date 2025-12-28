@@ -13,7 +13,8 @@ export const Hero = () => {
           <Grid size={{ xs: 12, md: 6 }} padding={2}>
             <Title />
             <Subtitle />
-            <Box display="flex" gap={1}>
+            <Headline />
+            <Box display="flex" gap={1} marginY={1}>
               <TryItNow />
               <ViewOnGitHub />
             </Box>
@@ -37,6 +38,13 @@ const Title = () => <Typography variant="h1">LiaraDB</Typography>;
 const Subtitle = () => (
   <Typography variant="subtitle1" sx={{ fontSize: 36 }}>
     Event Sourcing database
+  </Typography>
+);
+
+const Headline = () => (
+  <Typography variant="body1">
+    Event-native database, to power Event Sourced workflows for Microservices
+    with Domain Driven Design.
   </Typography>
 );
 
