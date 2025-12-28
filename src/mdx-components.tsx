@@ -42,7 +42,11 @@ const components = {
     return <Divider>{children}</Divider>;
   },
   p: ({ children }) => {
-    return <Typography variant="body1">{children}</Typography>;
+    return (
+      <Box component={Typography} variant="body1" marginBottom={2}>
+        {children}
+      </Box>
+    );
   },
   span: ({ children }) => {
     return (
