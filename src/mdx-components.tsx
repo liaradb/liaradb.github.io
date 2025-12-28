@@ -2,7 +2,7 @@ import { Box, Divider, Typography } from "@mui/material";
 import type { MDXComponents } from "mdx/types";
 
 import { LinkLink } from "./components";
-import { MdxSyntax } from "./mdx_syntax";
+import { MdxSyntax, MdxSyntaxPre } from "./mdx_syntax";
 
 const components = {
   h1: ({ children }) => {
@@ -44,6 +44,13 @@ const components = {
   p: ({ children }) => {
     return <Typography variant="body1">{children}</Typography>;
   },
+  span: ({ children }) => {
+    return (
+      <Typography variant="body1" variantMapping={{ inherit: "span" }}>
+        {children}
+      </Typography>
+    );
+  },
   a: ({ children, href }) => {
     const external =
       href.startsWith("https://") || href.startsWith("http://") || false;
@@ -52,6 +59,9 @@ const components = {
         {children}
       </LinkLink>
     );
+  },
+  pre: (props) => {
+    return <MdxSyntaxPre {...props} />;
   },
   code: (props) => {
     return <MdxSyntax {...props} />;
