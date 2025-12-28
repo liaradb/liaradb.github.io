@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Box } from "@mui/material";
 
-import { CopyButton, CopyContextProvider } from "./components";
+import { CopyButton, CopyContextProvider } from "..";
 
 export const MdxSyntaxPre: FC<{ children: string | string[] }> = ({
   children,

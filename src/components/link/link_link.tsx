@@ -1,8 +1,8 @@
 "use client";
 
+import { FC, HTMLAttributeAnchorTarget, ReactNode } from "react";
 import { Link as MuiLink } from "@mui/material";
 import Link from "next/link";
-import { FC, HTMLAttributeAnchorTarget, ReactNode } from "react";
 
 export const LinkLink: FC<{
   href: string;

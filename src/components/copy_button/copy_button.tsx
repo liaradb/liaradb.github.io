@@ -1,9 +1,11 @@
 "use client";
 
+import { useCallback, useEffect, useState } from "react";
+
 import { IconButton, Tooltip } from "@mui/material";
 import { ContentCopy } from "@mui/icons-material";
+
 import { useCopyContext } from "./copy_context";
-import { useCallback, useEffect, useState } from "react";
 
 const buttonText = "Copy to clipboard";
 const copiedText = "Copied!";
