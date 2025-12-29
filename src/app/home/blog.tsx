@@ -1,4 +1,4 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import Entries from "../blog/entries";
 import { LinkButton } from "@/components";
@@ -6,7 +6,7 @@ import { ArrowForward } from "@mui/icons-material";
 
 export function Blog() {
   return (
-    <Container>
+    <>
       <Box
         display="flex"
         alignItems="center"
@@ -22,6 +22,6 @@ export function Blog() {
         </LinkButton>
       </Box>
       <Entries />
-    </Container>
+    </>
   );
 }

@@ -25,7 +25,8 @@ export const AppPage: FC<{
         display="flex"
         flexDirection="column"
         gap={2}
-        paddingY={2}
+        marginTop={2}
+        marginBottom={4}
       >
         {children}
       </Box>

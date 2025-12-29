@@ -11,12 +11,10 @@ export function Home() {
         <Toolbar />
       </Box>
       <Hero />
-      <Box marginY={4}>
-        <Container>
-          <Topics />
-        </Container>
+      <Box component={Container} marginY={4}>
+        <Topics />
+        <Blog />
       </Box>
-      <Blog />
     </>
   );
 }
