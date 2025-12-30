@@ -14,6 +14,7 @@ import {
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Build, Home, Info, Lightbulb } from "@mui/icons-material";
+import Link from "next/link";
 
 export const MenuDrawer = () => {
   const [open, setOpen] = useState(false);
@@ -35,7 +36,11 @@ export const MenuDrawer = () => {
             {links.map((link) => {
               return (
                 <ListItem key={link.href} disablePadding>
-                  <ListItemButton>
+                  <ListItemButton
+                    component={Link}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                  >
                     <ListItemIcon>{link.icon}</ListItemIcon>
                     <ListItemText>{link.title}</ListItemText>
                   </ListItemButton>
