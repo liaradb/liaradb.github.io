@@ -3,6 +3,8 @@
 import { Breadcrumbs, Typography } from "@mui/material";
 import { usePathname } from "next/navigation";
 
+import { breadcrumb } from "@/navigation";
+
 import { LinkLink } from "../link";
 
 export const AppBreadcrumbs = () => {
@@ -35,18 +37,4 @@ export const AppBreadcrumbs = () => {
       })}
     </Breadcrumbs>
   );
-};
-
-const breadcrumb = (part: string) => {
-  return breadcrumbMap[part] ?? part;
-};
-
-const breadcrumbMap: Record<string, string> = {
-  blog: "Blog",
-  docs: "Documentation",
-  features: "Features",
-  "about-us": "About us",
-  "get-started": "Get started",
-  "use-cases": "Use cases",
-  license: "License",
 };

@@ -13,9 +13,10 @@ import {
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Build, Home, Info, Lightbulb } from "@mui/icons-material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+import { navigation } from "@/navigation";
 
 export const MenuDrawer = () => {
   const [open, setOpen] = useState(false);
@@ -35,7 +36,7 @@ export const MenuDrawer = () => {
       <Drawer open={open} onClose={() => setOpen(false)}>
         <Box width={250}>
           <List>
-            {links.map((link) => {
+            {navigation.map((link) => {
               return (
                 <ListItem key={link.href} disablePadding>
                   <ListItemButton
@@ -64,14 +65,3 @@ function isSelected(pathname: string, href: string) {
 
   return pathname.startsWith(href);
 }
-
-const links = [
-  { title: "LiaraDB", href: "/", icon: <Home /> },
-  { title: "About us", href: "/about-us" },
-  { title: "Get started", href: "/get-started" },
-  { title: "Documentation", href: "/docs", icon: <Info /> },
-  { title: "Use cases", href: "/use-cases", icon: <Lightbulb /> },
-  { title: "Features", href: "/features", icon: <Build /> },
-  { title: "Blog", href: "/blog" },
-  { title: "License", href: "/license" },
-];

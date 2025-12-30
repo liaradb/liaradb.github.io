@@ -1,5 +1,7 @@
 import { Box, Container, Divider, Grid } from "@mui/material";
 
+import { navigation } from "@/navigation";
+
 import { Copyright } from "./copyright";
 import { FooterLinks } from "./footer_links";
 
@@ -26,18 +28,7 @@ const Content = () => {
         component={Box}
         justifyContent="end"
       >
-        <FooterLinks
-          links={[
-            { title: "LiaraDB", href: "/" },
-            { title: "About us", href: "/about-us" },
-            { title: "Get started", href: "/get-started" },
-            { title: "Documentation", href: "/docs" },
-            { title: "Use cases", href: "/use-cases" },
-            { title: "Features", href: "/features" },
-            { title: "Blog", href: "/blog" },
-            { title: "License", href: "/license" },
-          ]}
-        />
+        <FooterLinks links={navigation} />
       </Grid>
     </Grid>
   );
