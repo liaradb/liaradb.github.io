@@ -15,9 +15,11 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Build, Home, Info, Lightbulb } from "@mui/icons-material";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export const MenuDrawer = () => {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   return (
     <>
       <IconButton
@@ -40,6 +42,7 @@ export const MenuDrawer = () => {
                     component={Link}
                     href={link.href}
                     onClick={() => setOpen(false)}
+                    selected={isSelected(pathname, link.href)}
                   >
                     <ListItemIcon>{link.icon}</ListItemIcon>
                     <ListItemText>{link.title}</ListItemText>
@@ -53,6 +56,14 @@ export const MenuDrawer = () => {
     </>
   );
 };
+
+function isSelected(pathname: string, href: string) {
+  if (href === "/") {
+    return pathname === href;
+  }
+
+  return pathname.startsWith(href);
+}
 
 const links = [
   { title: "LiaraDB", href: "/", icon: <Home /> },
