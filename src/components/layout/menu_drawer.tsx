@@ -2,9 +2,18 @@
 
 import { useState } from "react";
 
-import { Box, Drawer } from "@mui/material";
+import {
+  Box,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Build, Home, Info, Lightbulb } from "@mui/icons-material";
 
 export const MenuDrawer = () => {
   const [open, setOpen] = useState(false);
@@ -21,8 +30,32 @@ export const MenuDrawer = () => {
         <MenuIcon />
       </IconButton>
       <Drawer open={open} onClose={() => setOpen(false)}>
-        <Box width={250}></Box>
+        <Box width={250}>
+          <List>
+            {links.map((link) => {
+              return (
+                <ListItem key={link.href} disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>{link.icon}</ListItemIcon>
+                    <ListItemText>{link.title}</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              );
+            })}
+          </List>
+        </Box>
       </Drawer>
     </>
   );
 };
+
+const links = [
+  { title: "LiaraDB", href: "/", icon: <Home /> },
+  { title: "About us", href: "/about-us" },
+  { title: "Get started", href: "/get-started" },
+  { title: "Documentation", href: "/docs", icon: <Info /> },
+  { title: "Use cases", href: "/use-cases", icon: <Lightbulb /> },
+  { title: "Features", href: "/features", icon: <Build /> },
+  { title: "Blog", href: "/blog" },
+  { title: "License", href: "/license" },
+];
