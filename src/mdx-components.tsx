@@ -1,4 +1,15 @@
-import { Box, Divider, Typography } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@mui/material";
 import type { MDXComponents } from "mdx/types";
 
 import { LinkLink, MdxSyntax, MdxSyntaxPre } from "./components";
@@ -68,6 +79,28 @@ const components = {
   },
   code: (props) => {
     return <MdxSyntax {...props} />;
+  },
+  table: ({ children }) => {
+    return (
+      <TableContainer component={Paper}>
+        <Table>{children}</Table>
+      </TableContainer>
+    );
+  },
+  thead: ({ children }) => {
+    return <TableHead>{children}</TableHead>;
+  },
+  tbody: ({ children }) => {
+    return <TableBody>{children}</TableBody>;
+  },
+  tr: ({ children }) => {
+    return <TableRow>{children}</TableRow>;
+  },
+  th: ({ children }) => {
+    return <TableCell>{children}</TableCell>;
+  },
+  td: ({ children }) => {
+    return <TableCell>{children}</TableCell>;
   },
 } as MDXComponents;
 
