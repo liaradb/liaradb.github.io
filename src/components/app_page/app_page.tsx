@@ -1,5 +1,7 @@
-import { Box, Container, Divider, Toolbar, Typography } from "@mui/material";
 import { FC, ReactNode } from "react";
+import { Box, Container, Divider, Toolbar, Typography } from "@mui/material";
+
+import { AppBreadcrumbs } from "../app_breadcrumbs";
 
 const baseTitle = "LiaraDB";
 
@@ -16,6 +18,7 @@ export const AppPage: FC<{
         <Toolbar />
       </Box>
       <Box component={Container} paddingY={2}>
+        <AppBreadcrumbs />
         <Typography variant="h1">{title}</Typography>
         {subTitle && <Typography variant="h5">{subTitle}</Typography>}
       </Box>
