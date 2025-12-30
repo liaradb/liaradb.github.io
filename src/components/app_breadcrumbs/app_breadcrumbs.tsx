@@ -30,7 +30,12 @@ export const AppBreadcrumbs = () => {
           );
         }
         return (
-          <LinkLink key={item} underline="hover" color="inherit" href={item}>
+          <LinkLink
+            key={item}
+            underline="hover"
+            color="inherit"
+            href={`/${item}`}
+          >
             {breadcrumb(part)}
           </LinkLink>
         );
