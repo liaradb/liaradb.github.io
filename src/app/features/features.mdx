@@ -10,7 +10,7 @@ LiaraDB also provides a Key-Value storage system.
 
 Isn't SQL capable of Event Sourcing? Yes, but it's complicated...
 
-LiaraDB actually started out as a SQL based system, just like many other Event Sourcing solutions. It worked really well for storing data, but there was a catch. Replaying the entire log involves a race condition. If lots of Events are appended at once, the reader might skip some, and never return. There are some solutions, but none were ideal. Read more about it at [Event Store Sql](/blog/event-store-sql).
+LiaraDB actually started out as a SQL based system, just like many other Event Sourcing solutions. It worked really well for storing data, but there was a catch. Replaying the entire log involves a race condition. If lots of Events are appended at once, the reader might skip some, and never return. There are some solutions, but none were ideal. Read more about it at [Event Store SQL](/blog/event-store-sql).
 
 Going Event-native provided the opportunity to focus on one thing, and to do it well. Rather than supporting everything SQL does, LiaraDB optimizes for Event Sourcing.
 

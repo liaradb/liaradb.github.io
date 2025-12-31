@@ -14,7 +14,7 @@ export const Example = () => {
       }}
       padding={2}
     >
-      <SyntaxHighlighter style={{ ...a11yDark }}>
+      <SyntaxHighlighter language="typescript" style={{ ...a11yDark }}>
         {example.trim()}
       </SyntaxHighlighter>
     </Box>

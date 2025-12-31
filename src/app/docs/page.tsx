@@ -4,7 +4,7 @@ import { AppPage, appTitle } from "@/components";
 
 import Docs from "./docs.mdx";
 
-const title = "Docs";
+const title = "Documentation";
 
 export const metadata: Metadata = {
   title: appTitle(title),
