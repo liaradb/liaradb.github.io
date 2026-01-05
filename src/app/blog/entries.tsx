@@ -8,6 +8,9 @@ export default function Entries() {
       <Card>
         <CardContent>
           <Typography variant="h6">Event Store SQL</Typography>
+          <Typography variant="body1">
+            {"Why SQL sometimes isn't enough."}
+          </Typography>
         </CardContent>
         <Box
           component={CardActions}

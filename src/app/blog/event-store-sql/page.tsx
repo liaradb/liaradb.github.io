@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <AppPage title={title}>
+    <AppPage title={title} subTitle="Why sometimes SQL isn't enough.">
       <div>
         <EventStore />
       </div>

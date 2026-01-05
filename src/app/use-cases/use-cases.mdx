@@ -1,0 +1,21 @@
+Regular databases store the current state of an application. Records and Documents hold the information from CRUD (Create, Read, Update, and Delete) operations. But data changes over time, yet we only store the latest version. All of the intermediate versions are lost.
+
+What would we want that for anyway?
+
+## Time Traveling
+
+Imagine being able to rewind time, and see exactly what was happening at a given moment?
+
+_What were your customers doing? What did they do next?_
+
+_An error happened, what was going on? What do I need to fix?_
+
+_An important process occurred, what are the specific steps?_
+
+If you have all of the data, you can analyze it! Why throw it out?
+
+## Event Sourcing
+
+With Event Sourcing, data is stored as a series of Events in a log. It's append only, meaning data is never lost, just added to.
+
+Even better, it's a new way of thinking about our data.
