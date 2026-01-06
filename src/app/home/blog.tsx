@@ -21,7 +21,9 @@ export function Blog() {
           View all
         </LinkButton>
       </Box>
-      <Entries />
+      <Box display="flex" flexDirection="row" gap={2} flexWrap="wrap">
+        <Entries />
+      </Box>
     </>
   );
 }
