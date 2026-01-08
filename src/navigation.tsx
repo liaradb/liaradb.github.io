@@ -4,7 +4,7 @@ export const navigation = [
   { title: "LiaraDB", href: "/", icon: <Home /> },
   { title: "About us", href: "/about-us" },
   { title: "Get started", href: "/get-started" },
-  { title: "Documentation", href: "/docs", icon: <Info /> },
+  { title: "Documentation", href: "https://docs.liaradb.com", icon: <Info /> },
   { title: "Use cases", href: "/use-cases", icon: <Lightbulb /> },
   { title: "Features", href: "/features", icon: <Build /> },
   { title: "Blog", href: "/blog" },

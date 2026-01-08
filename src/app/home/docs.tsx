@@ -3,6 +3,11 @@ import { Topic } from "./topic";
 
 export const Docs = () => {
   return (
-    <Topic title="Documentation" icon={<Info />} items={[]} href="/docs" />
+    <Topic
+      title="Documentation"
+      icon={<Info />}
+      items={[]}
+      href="https://docs.liaradb.com"
+    />
   );
 };
