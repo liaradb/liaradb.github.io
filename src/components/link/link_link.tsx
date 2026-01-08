@@ -17,8 +17,11 @@ export const LinkLink: FC<
     href={href}
     sx={{ textDecoration: "none" }}
     component={Link}
-    target={target}
+    target={target || isExternal(href) ? "_blank" : undefined}
   >
     {children}
   </MuiLink>
 );
+
+const isExternal = (href: string) =>
+  href.startsWith("http://") || href.startsWith("https://");
