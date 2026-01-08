@@ -3,7 +3,7 @@ import { Build, Home, Info, Lightbulb } from "@mui/icons-material";
 export const navigation = [
   { title: "LiaraDB", href: "/", icon: <Home /> },
   { title: "About us", href: "/about-us" },
-  { title: "Get started", href: "/get-started" },
+  { title: "Get started", href: "https://docs.liaradb.com/docs/get-started" },
   { title: "Documentation", href: "https://docs.liaradb.com", icon: <Info /> },
   { title: "Use cases", href: "/use-cases", icon: <Lightbulb /> },
   { title: "Features", href: "/features", icon: <Build /> },

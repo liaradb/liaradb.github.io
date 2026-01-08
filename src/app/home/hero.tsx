@@ -57,7 +57,7 @@ const TryItNow = () => {
       color="info"
       size="large"
       endIcon={<ArrowForward />}
-      href="/get-started"
+      href="https://docs.liaradb.com/docs/get-started"
     >
       {callToAction}
     </LinkButton>
