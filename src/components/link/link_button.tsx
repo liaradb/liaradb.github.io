@@ -16,7 +16,7 @@ export const LinkButton: FC<
     );
   }
 
-  return <Button {...props} LinkComponent={Link}></Button>;
+  return <Button {...props} href={href} LinkComponent={Link}></Button>;
 };
 
 const isExternal = (href: string) =>
