@@ -20,7 +20,12 @@ export default function Entries() {
     <>
       {entries.map((e) => {
         return (
-          <Box flex={"1 0 calc(50% - 8px)"} key={e.href} component={Card}>
+          <Box
+            flex={"1 0 calc(50% - 8px)"}
+            key={e.href}
+            component={Card}
+            minWidth={400}
+          >
             <CardContent>
               <Typography variant="h6">{e.title}</Typography>
               <Typography variant="body1">{e.subtitle}</Typography>
