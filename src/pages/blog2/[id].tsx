@@ -1,3 +1,4 @@
+import { AppPage } from "@/components";
 import { getAllPostIds, getPostData, PostData } from "../../lib/posts";
 
 export async function getStaticProps({ params }: { params: { id: string } }) {
@@ -19,12 +20,10 @@ export async function getStaticPaths() {
 
 export default function Post({ postData }: { postData: PostData }) {
   return (
-    <main>
-      {postData.title}
-      <br />
+    <AppPage title={postData.title}>
       {postData.id}
       <br />
       {postData.date}
-    </main>
+    </AppPage>
   );
 }
