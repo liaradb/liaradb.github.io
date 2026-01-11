@@ -20,7 +20,7 @@ import { navigation } from "@/navigation";
 
 export const MenuDrawer = () => {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "";
   return (
     <>
       <IconButton

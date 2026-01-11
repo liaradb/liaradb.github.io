@@ -9,7 +9,7 @@ import { LinkLink } from "../link";
 
 export const AppBreadcrumbs = () => {
   const pathname = usePathname();
-  const parts = pathname.substring(1).split("/");
+  const parts = pathname?.substring(1).split("/") ?? [];
 
   const items = parts.reduce((items, item) => {
     items.push([...items, item].join("/"));
