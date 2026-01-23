@@ -9,6 +9,11 @@ const entries = [
     href: "/blog/event-store-sql",
   },
   {
+    title: "Create a TypeScript project",
+    subtitle: "Let's get up and running with build and testing scripts!",
+    href: "/blog/create-typescript-project",
+  },
+  {
     title: "Encapsulation",
     subtitle: "Fighting public enemy #1",
     href: "/blog/encapsulation",
