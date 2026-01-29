@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import { Features } from "./features";
 import { UseCases } from "./use_cases";
-import { Docs } from "./docs";
+import { Explorer } from "./explorer";
 
 export const Topics = () => {
   return (
@@ -13,7 +13,7 @@ export const Topics = () => {
         <UseCases />
       </Grid>
       <Grid size={{ xs: 12, md: 4 }} container>
-        <Docs />
+        <Explorer />
       </Grid>
     </Grid>
   );
