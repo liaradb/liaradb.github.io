@@ -4,10 +4,26 @@ import { ArrowForward, GitHub } from "@mui/icons-material";
 import { LinkButton } from "@/components";
 
 import { Example } from "./example";
+import { Logo } from "./logo";
 
 export const Hero = () => {
   return (
-    <Box bgcolor="black" paddingY={4}>
+    <Box
+      bgcolor="black"
+      paddingY={4}
+      sx={{
+        backgroundColor: "#0F0F0F",
+        backgroundImage: `
+          radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+          radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+          radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%),
+          radial-gradient(at 80% 50%, hsla(26,96%,45%,0.3) 0, transparent 50%),
+          radial-gradient(at 0% 100%, hsla(265,96%,27%,0.5) 0, transparent 50%),
+          radial-gradient(at 80% 100%, hsla(265,30%,20%,0.5) 0, transparent 50%),
+          radial-gradient(at 0% 0%, hsla(343,100%,76%,0.05) 0, transparent 50%);
+        `,
+      }}
+    >
       <Container>
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, md: 6 }} padding={2}>
@@ -33,7 +49,12 @@ export const Hero = () => {
   );
 };
 
-const Title = () => <Typography variant="h1">LiaraDB</Typography>;
+const Title = () => (
+  <Box display="flex" gap={1}>
+    <Logo size={65} color="white" />
+    <Typography variant="h1">LiaraDB</Typography>
+  </Box>
+);
 
 const Subtitle = () => (
   <Typography variant="subtitle1" sx={{ fontSize: 36 }}>
