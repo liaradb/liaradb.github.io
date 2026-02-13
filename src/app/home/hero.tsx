@@ -1,5 +1,5 @@
 import { Box, Button, Card, Container, Grid, Typography } from "@mui/material";
-import { ArrowForward, GitHub } from "@mui/icons-material";
+import { GitHub, RocketLaunch } from "@mui/icons-material";
 
 import { LinkButton } from "@/components";
 
@@ -77,7 +77,7 @@ const TryItNow = () => {
       variant="contained"
       color="info"
       size="large"
-      endIcon={<ArrowForward />}
+      endIcon={<RocketLaunch />}
       href="https://docs.liaradb.com/docs/get-started"
     >
       {callToAction}

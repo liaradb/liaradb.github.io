@@ -19,12 +19,12 @@ export const Footer = () => {
 const Content = () => {
   return (
     <Grid container spacing={1}>
-      <Grid size={{ xs: 12, md: 4 }}>
+      <Grid size={{ xs: 12, md: 3 }}>
         <Copyright />
       </Grid>
       <Grid
         container
-        size={{ xs: 12, md: 8 }}
+        size={{ xs: 12, md: 9 }}
         component={Box}
         justifyContent="end"
       >
