@@ -32,6 +32,18 @@ export const metadata: Metadata = {
     "Microservice",
     "Domain Driven Design",
   ],
+  icons: [
+    {
+      media: "(prefers-color-scheme: light)",
+      url: "/images/favicon-light.svg",
+      type: "image/svg+xml",
+    },
+    {
+      media: "(prefers-color-scheme: dark)",
+      url: "/images/favicon-dark.svg",
+      type: "image/svg+xml",
+    },
+  ],
 };
 
 export default function RootLayout({
