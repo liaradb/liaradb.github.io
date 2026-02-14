@@ -5,7 +5,7 @@ const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#000030",
+      main: "rgb(100, 100, 234)",
     },
     secondary: {
       main: "rgb(229, 229, 234)",
@@ -28,6 +28,13 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiAppBar: {
+      styleOverrides: {
+        colorPrimary: {
+          backgroundColor: "#000030",
+        },
+      },
+    },
     MuiButton: {
       defaultProps: {
         sx: {

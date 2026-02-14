@@ -3,7 +3,7 @@ import { GitHub, RocketLaunch } from "@mui/icons-material";
 
 import { LinkButton } from "@/components";
 
-import { Example } from "./example";
+import { ExampleTabs } from "./example_tabs";
 import { Logo } from "./logo";
 
 export const Hero = () => {
@@ -41,7 +41,7 @@ export const Hero = () => {
             variant="outlined"
             minHeight={200}
           >
-            <Example />
+            <ExampleTabs />
           </Grid>
         </Grid>
       </Container>
