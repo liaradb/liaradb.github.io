@@ -48,10 +48,10 @@ export function ExampleTabs() {
       <CustomTabPanel value={value} index={0}>
         <Example />
       </CustomTabPanel>
-      {/* <CustomTabPanel value={value} index={1}>
-        Item Two
+      <CustomTabPanel value={value} index={1}>
+        <Example />
       </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
+      {/* <CustomTabPanel value={value} index={2}>
         Item Three
       </CustomTabPanel> */}
     </Box>
@@ -65,8 +65,8 @@ const TabHeader: FC<{
   return (
     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
       <Tab label="Go" {...a11yProps(0)} />
-      {/* <Tab label="Item Two" {...a11yProps(1)} />
-      <Tab label="Item Three" {...a11yProps(2)} /> */}
+      <Tab label="TypeScript" {...a11yProps(1)} />
+      {/* <Tab label="Item Three" {...a11yProps(2)} /> */}
     </Tabs>
   );
 };

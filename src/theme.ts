@@ -35,6 +35,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiTab: {
+      defaultProps: {
+        sx: {
+          textTransform: "none",
+        },
+      },
+    },
     MuiButton: {
       defaultProps: {
         sx: {
