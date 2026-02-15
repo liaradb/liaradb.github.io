@@ -45,6 +45,9 @@ export const metadata: Metadata = {
       type: "image/svg+xml",
     },
   ],
+  openGraph: {
+    siteName: "LiaraDB",
+  },
 };
 
 export default function RootLayout({
