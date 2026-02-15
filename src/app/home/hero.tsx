@@ -1,4 +1,12 @@
-import { Box, Button, Card, Container, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  Container,
+  Grid,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import { GitHub, RocketLaunch } from "@mui/icons-material";
 
 import { LinkButton } from "@/components";
@@ -24,6 +32,7 @@ export const Hero = () => {
         `,
       }}
     >
+      <Toolbar />
       <Container>
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, md: 6 }} padding={2}>
