@@ -2,12 +2,20 @@ import { Metadata } from "next";
 
 import { AppPage, appTitle } from "@/components";
 
-const title = "About us";
+import About from "./about.mdx";
+
+const title = "About";
 
 export const metadata: Metadata = {
   title: appTitle(title),
 };
 
 export default function Page() {
-  return <AppPage title={title}></AppPage>;
+  return (
+    <AppPage title={title}>
+      <div>
+        <About />
+      </div>
+    </AppPage>
+  );
 }

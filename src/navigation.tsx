@@ -11,7 +11,7 @@ import {
 
 export const navigation = [
   { title: "LiaraDB", href: "/", icon: <Home /> },
-  { title: "About us", href: "/about-us", icon: <Info /> },
+  { title: "About", href: "/about", icon: <Info /> },
   {
     title: "Get started",
     href: "https://docs.liaradb.com/docs/get-started",
