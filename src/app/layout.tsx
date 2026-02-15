@@ -18,6 +18,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
+  applicationName: "LiaraDB",
   title: "LiaraDB - Event sourcing database",
   description:
     "Event-native database, to power Event Sourced workflows for Microservices with Domain Driven Design.",
