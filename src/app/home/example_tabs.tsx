@@ -2,7 +2,8 @@
 
 import React, { FC, SyntheticEvent } from "react";
 import { Box, Tab, Tabs } from "@mui/material";
-import { Example } from "./example";
+import { ExampleTs } from "./example_ts";
+import { ExampleGo } from "./example_go";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -46,10 +47,10 @@ export function ExampleTabs() {
         <TabHeader value={value} handleChange={handleChange} />
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <Example />
+        <ExampleTs />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <Example />
+        <ExampleGo />
       </CustomTabPanel>
       {/* <CustomTabPanel value={value} index={2}>
         Item Three
