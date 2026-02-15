@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-export const Example = () => {
+export const ExampleGo = () => {
   return (
     <Box
       sx={{
@@ -14,7 +14,7 @@ export const Example = () => {
       }}
       padding={2}
     >
-      <SyntaxHighlighter language="typescript" style={{ ...a11yDark }}>
+      <SyntaxHighlighter language="go" style={{ ...a11yDark }}>
         {example.trim()}
       </SyntaxHighlighter>
     </Box>
@@ -22,15 +22,12 @@ export const Example = () => {
 };
 
 const example = `
-async function handleEvents(id: string) {
-  const events = await getEvents(id);
-
-  events.reduce((prev, event) => {
-    return {
-      ...prev,
-      // ... apply events
-      event,
-    };
-  }, {});
+func handleEvents(ctx context.Context, id string) error {
+  for event, err := range getEvents(ctx, id) {
+    if err != nil {
+      return err
+    }
+    // ...
+  }
 }
 `;
