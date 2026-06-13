@@ -102,7 +102,7 @@ const ViewOnGitHub = () => {
       variant="outlined"
       color="info"
       size="large"
-      href="https://github.com/liaradb"
+      href="https://github.com/liaradb/liara"
       LinkComponent="a"
       target="_blank"
       endIcon={<GitHub />}
