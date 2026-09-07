@@ -1,7 +1,8 @@
-import { AppBar, Box, Container, Toolbar, Typography } from "@mui/material";
+import { Box, Container, Toolbar, Typography } from "@mui/material";
 import Link from "next/link";
 
 import { HeaderIcons } from "./header_icons";
+import { HeaderAppBar } from "./header_app_bar";
 import { MenuDrawer } from "./menu_drawer";
 
 const title = "LiaraDB";
@@ -9,7 +10,7 @@ const title = "LiaraDB";
 export const Header = () => {
   return (
     <Box>
-      <AppBar position="fixed" enableColorOnDark>
+      <HeaderAppBar>
         <Toolbar component={Container}>
           <MenuDrawer />
           <Typography
@@ -33,7 +34,7 @@ export const Header = () => {
           </Typography>
           <HeaderIcons />
         </Toolbar>
-      </AppBar>
+      </HeaderAppBar>
     </Box>
   );
 };
