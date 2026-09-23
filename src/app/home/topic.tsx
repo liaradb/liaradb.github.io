@@ -8,9 +8,16 @@ export const Topic: FC<{
   icon: ReactNode | ReactNode[];
   items: string[];
   href: string;
-}> = ({ title, icon, items, href }) => {
+  backgroundColor?: string;
+}> = ({ title, icon, items, href, backgroundColor }) => {
   return (
-    <Box component={Card} display="flex" flexDirection="column" flexGrow={1}>
+    <Box
+      component={Card}
+      display="flex"
+      flexDirection="column"
+      flexGrow={1}
+      sx={{ backgroundColor: backgroundColor }}
+    >
       <Box component={CardContent} flexGrow={1}>
         <Box display="flex" alignItems="center" gap={1}>
           {icon}

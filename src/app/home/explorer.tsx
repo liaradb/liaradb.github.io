@@ -8,6 +8,7 @@ export const Explorer = () => {
       icon={<Terminal />}
       items={["VSCode Extension", "Manage your instances", "Query your data"]}
       href="/explorer"
+      backgroundColor="hsla(225,39%,30%,1)"
     />
   );
 };

@@ -12,6 +12,7 @@ export const UseCases = () => {
         "Simple reporting and analytics",
       ]}
       href="/use-cases"
+      backgroundColor="hsla(26,96%,45%,0.3)"
     />
   );
 };

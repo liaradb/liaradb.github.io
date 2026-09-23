@@ -14,6 +14,7 @@ export const Features = () => {
         "Distributed database",
       ]}
       href="/features"
+      backgroundColor="hsla(265,96%,27%,0.5)"
     />
   );
 };
