@@ -1,40 +1,30 @@
-import { getSortedPostsData, PostData } from "../../lib/posts";
-import { AppPage } from "@/components";
+import { FC } from "react";
 
-import { NextPageWithLayout } from "../_app";
+import { AppPage, BlogItem } from "@/components";
+import { getSortedPostsData, PostData } from "../../lib/posts";
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const posts = getSortedPostsData();
   return {
     props: {
-      allPostsData,
+      posts,
     },
   };
 }
 
-const Home: NextPageWithLayout<{ allPostsData: PostData[] }> = ({
-  allPostsData,
-}) => {
+const Blog: FC<{ posts: PostData[] }> = ({ posts }) => {
   return (
     <AppPage title="Blog">
-      {/* Keep the existing code here */}
-
-      {/* Add this <section> tag below the existing <section> tag */}
-      <section>
-        <ul>
-          {allPostsData.map(({ id, date, title }) => (
-            <li key={id}>
-              <a href={`./blog2/${id}`}>{title}</a>
-              <br />
-              {id}
-              <br />
-              {date}
-            </li>
-          ))}
-        </ul>
-      </section>
+      {posts.map(({ id, date, title }) => (
+        <BlogItem
+          key={id}
+          href={`./blog2/${id}`}
+          title={title}
+          subtitle={date}
+        />
+      ))}
     </AppPage>
   );
 };
 
-export default Home;
+export default Blog;
