@@ -1,5 +1,6 @@
 import { Container } from "@mui/material";
 import { getSortedPostsData, PostData } from "../../lib/posts";
+import { AppPage } from "@/components";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -12,16 +13,15 @@ export async function getStaticProps() {
 
 export default function Home({ allPostsData }: { allPostsData: PostData[] }) {
   return (
-    <Container>
+    <AppPage title="Blog">
       {/* Keep the existing code here */}
 
       {/* Add this <section> tag below the existing <section> tag */}
       <section>
-        <h2>Blog</h2>
         <ul>
           {allPostsData.map(({ id, date, title }) => (
             <li key={id}>
-              <a href={id}>{title}</a>
+              <a href={`./blog2/${id}`}>{title}</a>
               <br />
               {id}
               <br />
@@ -30,6 +30,6 @@ export default function Home({ allPostsData }: { allPostsData: PostData[] }) {
           ))}
         </ul>
       </section>
-    </Container>
+    </AppPage>
   );
 }
