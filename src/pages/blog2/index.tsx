@@ -1,6 +1,7 @@
-import { Container } from "@mui/material";
 import { getSortedPostsData, PostData } from "../../lib/posts";
 import { AppPage } from "@/components";
+
+import { NextPageWithLayout } from "../_app";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -11,7 +12,9 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ allPostsData }: { allPostsData: PostData[] }) {
+const Home: NextPageWithLayout<{ allPostsData: PostData[] }> = ({
+  allPostsData,
+}) => {
   return (
     <AppPage title="Blog">
       {/* Keep the existing code here */}
@@ -32,4 +35,6 @@ export default function Home({ allPostsData }: { allPostsData: PostData[] }) {
       </section>
     </AppPage>
   );
-}
+};
+
+export default Home;
