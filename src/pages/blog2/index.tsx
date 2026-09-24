@@ -15,12 +15,13 @@ export async function getStaticProps() {
 const Blog: FC<{ posts: PostData[] }> = ({ posts }) => {
   return (
     <AppPage title="Blog">
-      {posts.map(({ id, date, title }) => (
+      {posts.map(({ date, id, title, subtitle }) => (
         <BlogItem
           key={id}
           href={`./blog2/${id}`}
           title={title}
-          subtitle={date}
+          subtitle={subtitle}
+          date={date}
         />
       ))}
     </AppPage>

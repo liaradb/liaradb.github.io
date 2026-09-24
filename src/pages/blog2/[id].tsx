@@ -20,9 +20,7 @@ export async function getStaticPaths() {
 
 export default function Post({ postData }: { postData: PostData }) {
   return (
-    <AppPage title={postData.title}>
-      {postData.id}
-      <br />
+    <AppPage title={postData.title} subTitle={postData.subtitle}>
       {postData.date}
       <br />
       <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />

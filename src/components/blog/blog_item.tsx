@@ -5,10 +5,11 @@ import { ArrowForward } from "@mui/icons-material";
 import { LinkButton } from "@/components";
 
 export const BlogItem: FC<{
-  title: string;
-  subtitle: string;
+  date: string;
   href: string;
-}> = ({ href, subtitle, title }) => {
+  subtitle: string | undefined;
+  title: string;
+}> = ({ date, href, title, subtitle }) => {
   return (
     <Box
       flex={"1 0 calc(50% - 8px)"}
@@ -19,6 +20,7 @@ export const BlogItem: FC<{
       <CardContent>
         <Typography variant="h6">{title}</Typography>
         <Typography variant="body1">{subtitle}</Typography>
+        <Typography variant="body2">{date}</Typography>
       </CardContent>
       <Box
         component={CardActions}
