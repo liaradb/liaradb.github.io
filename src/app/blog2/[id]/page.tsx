@@ -1,13 +1,23 @@
-import { Metadata } from "next";
+import { Metadata, ResolvingMetadata } from "next";
 
 import { AppPage, appTitle } from "@/components";
 import { getAllPostIds, getPostData } from "@/lib/posts";
 
-const title = "Event Store SQL";
+export async function generateMetadata(
+  {
+    params,
+  }: {
+    params: Promise<{ id: string }>;
+  },
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const { id } = await params;
+  const { title } = await getPostData(id);
 
-export const metadata: Metadata = {
-  title: appTitle(title),
-};
+  return {
+    title: appTitle(title),
+  };
+}
 
 export default async function Page({
   params,

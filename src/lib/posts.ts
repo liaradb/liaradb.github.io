@@ -36,7 +36,7 @@ export function getSortedPostsData() {
         date: string;
         title: string;
       }),
-    };
+    } as PostData;
   });
 
   // Sort posts by date
