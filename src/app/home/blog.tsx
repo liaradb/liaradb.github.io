@@ -23,7 +23,7 @@ export function Blog() {
         </LinkButton>
       </Box>
       <Box display="flex" flexDirection="row" gap={2} flexWrap="wrap">
-        <Entries />
+        <Entries max={2} />
       </Box>
     </>
   );
