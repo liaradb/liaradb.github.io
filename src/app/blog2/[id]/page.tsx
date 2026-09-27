@@ -1,7 +1,7 @@
 import { Metadata, ResolvingMetadata } from "next";
 
 import { AppPage, appTitle } from "@/components";
-import { getAllPostIds, getPostData } from "@/lib/posts";
+import { getAllPostIds, getPostData, importMarkdown } from "@/lib/posts";
 
 export async function generateMetadata(
   {
@@ -25,12 +25,13 @@ export default async function Page({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+  const { default: Value } = await importMarkdown(id);
   const postData = await getPostData(id);
   return (
     <AppPage title={postData.title} subTitle={postData.subtitle}>
       {postData.date}
       <br />
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      <Value />
     </AppPage>
   );
 }

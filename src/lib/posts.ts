@@ -60,6 +60,11 @@ export function getAllPostIds() {
   });
 }
 
+export function importMarkdown(id: string) {
+  const fullPath = path.join("../posts", `${id}.mdx`);
+  return import(fullPath);
+}
+
 export async function getPostData(id: string) {
   const fullPath = path.join(postsDirectory, `${id}.mdx`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
