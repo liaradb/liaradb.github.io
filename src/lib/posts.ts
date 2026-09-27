@@ -1,9 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { remark } from "remark";
-import html from "remark-html";
-import gfm from "remark-gfm";
+import { FC } from "react";
 
 const postsDirectory = path.join(process.cwd(), "src/posts");
 
@@ -12,7 +10,7 @@ export interface PostData {
   title: string;
   subtitle?: string;
   id: string;
-  contentHtml: string;
+  Markdown: FC;
 }
 
 export function getSortedPostsData() {
@@ -60,11 +58,6 @@ export function getAllPostIds() {
   });
 }
 
-export function importMarkdown(id: string) {
-  const fullPath = path.join("../posts", `${id}.mdx`);
-  return import(fullPath);
-}
-
 export async function getPostData(id: string) {
   const fullPath = path.join(postsDirectory, `${id}.mdx`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -72,17 +65,17 @@ export async function getPostData(id: string) {
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
-  // Use remark to convert markdown into HTML string
-  const processedContent = await remark()
-    .use(html)
-    .use(gfm)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  const Markdown = await importMarkdown(id);
 
-  // Combine the data with the id and contentHtml
   return {
     id,
-    contentHtml,
+    Markdown,
     ...matterResult.data,
   } as PostData;
+}
+
+async function importMarkdown(id: string) {
+  const fullPath = path.join("../posts", `${id}.mdx`);
+  const { default: value } = await import(fullPath);
+  return value;
 }
