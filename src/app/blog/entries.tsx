@@ -1,5 +1,5 @@
-import { BlogItem } from "@/components";
 import { getSortedPostsData } from "@/lib/posts";
+import { BlogItem } from "./blog_item";
 
 export function Entries() {
   const posts = getSortedPostsData();
@@ -7,7 +7,7 @@ export function Entries() {
     return (
       <BlogItem
         key={e.id}
-        date=""
+        date={e.date}
         href={`./blog/${e.id}`}
         title={e.title}
         subtitle={e.subtitle}
