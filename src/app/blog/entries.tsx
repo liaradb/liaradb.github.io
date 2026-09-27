@@ -1,59 +1,17 @@
-import { LinkButton } from "@/components";
-import { Box, Card, CardActions, CardContent, Typography } from "@mui/material";
-import { ArrowForward } from "@mui/icons-material";
+import { BlogItem } from "@/components";
+import { getSortedPostsData } from "@/lib/posts";
 
-const entries = [
-  {
-    title: "Event Store SQL",
-    subtitle: "Why SQL sometimes isn't enough.",
-    href: "/blog/event-store-sql",
-  },
-  {
-    title: "Create a TypeScript project",
-    subtitle: "Let's get up and running with build and testing scripts!",
-    href: "/blog/create-typescript-project",
-  },
-  {
-    title: "Encapsulation",
-    subtitle: "Fighting public enemy #1",
-    href: "/blog/encapsulation",
-  },
-];
-
-export default function Entries() {
-  return (
-    <>
-      {entries.map((e) => {
-        return (
-          <Box
-            flex={"1 0 calc(50% - 8px)"}
-            key={e.href}
-            component={Card}
-            minWidth={400}
-          >
-            <CardContent>
-              <Typography variant="h6">{e.title}</Typography>
-              <Typography variant="body1">{e.subtitle}</Typography>
-            </CardContent>
-            <Box
-              component={CardActions}
-              display="flex"
-              alignItems="center"
-              justifyContent="end"
-              gap={1}
-            >
-              <LinkButton
-                color="info"
-                size="medium"
-                endIcon={<ArrowForward />}
-                href={e.href}
-              >
-                Learn more
-              </LinkButton>
-            </Box>
-          </Box>
-        );
-      })}
-    </>
-  );
+export function Entries() {
+  const posts = getSortedPostsData();
+  return posts.map((e) => {
+    return (
+      <BlogItem
+        key={e.id}
+        date=""
+        href={`./blog/${e.id}`}
+        title={e.title}
+        subtitle={e.subtitle}
+      />
+    );
+  });
 }

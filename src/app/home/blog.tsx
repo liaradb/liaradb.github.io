@@ -1,8 +1,9 @@
 import { Box, Typography } from "@mui/material";
 
-import Entries from "../blog/entries";
 import { LinkButton } from "@/components";
 import { ArrowForward } from "@mui/icons-material";
+
+import { Entries } from "../blog/entries";
 
 export function Blog() {
   return (
