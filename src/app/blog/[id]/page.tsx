@@ -26,10 +26,15 @@ export default async function Page({
 }) {
   const { id } = await params;
   const postData = await getPostData(id);
+  const date = postData.date?.toLocaleDateString();
   return (
     <AppPage title={postData.title} subTitle={postData.subtitle}>
-      {postData.date}
-      <br />
+      {date && (
+        <>
+          {date}
+          <br />
+        </>
+      )}
       <postData.Markdown />
     </AppPage>
   );

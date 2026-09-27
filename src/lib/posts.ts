@@ -6,11 +6,37 @@ import { FC } from "react";
 const postsDirectory = path.join(process.cwd(), "src/posts");
 
 export interface PostData {
-  date: string;
+  date?: Date;
   title: string;
   subtitle?: string;
   id: string;
   Markdown: FC;
+}
+
+type HeaderData = {
+  date?: string;
+  title: string;
+  subtitle?: string;
+};
+
+function getHeader({ title, date, subtitle }: HeaderData) {
+  return {
+    title,
+    subtitle,
+    date: getDate(date),
+  };
+}
+
+function getDate(value: string | undefined) {
+  if (!value) {
+    return undefined;
+  }
+
+  try {
+    return new Date(value);
+  } catch {
+    return undefined;
+  }
 }
 
 export function getSortedPostsData() {
@@ -25,21 +51,18 @@ export function getSortedPostsData() {
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
     // Use gray-matter to parse the post metadata section
-    const matterResult = matter(fileContents);
+    const { data } = matter(fileContents);
 
     // Combine the data with the id
     return {
       id,
-      ...(matterResult.data as {
-        date: string;
-        title: string;
-      }),
+      ...getHeader(data as any),
     } as PostData;
   });
 
   // Sort posts by date
   return allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
+    if ((a.date?.getTime() ?? 0) < (b.date?.getTime() ?? 0)) {
       return 1;
     } else {
       return -1;
@@ -70,7 +93,7 @@ export async function getPostData(id: string) {
   return {
     id,
     Markdown,
-    ...matterResult.data,
+    ...getHeader(matterResult.data as any),
   } as PostData;
 }
 

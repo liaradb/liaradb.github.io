@@ -5,7 +5,7 @@ import { ArrowForward } from "@mui/icons-material";
 import { LinkButton } from "@/components";
 
 export const BlogItem: FC<{
-  date: string;
+  date: Date | undefined;
   href: string;
   subtitle: string | undefined;
   title: string;
@@ -20,7 +20,7 @@ export const BlogItem: FC<{
       <CardContent>
         <Typography variant="h6">{title}</Typography>
         <Typography variant="body1">{subtitle}</Typography>
-        <Typography variant="body2">{date}</Typography>
+        <Typography variant="body2">{date?.toLocaleDateString()}</Typography>
       </CardContent>
       <Box
         component={CardActions}
