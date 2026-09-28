@@ -2,6 +2,8 @@ import { Metadata, ResolvingMetadata } from "next";
 
 import { AppPage, appTitle } from "@/components";
 import { getAllPostIds, getPostData } from "@/lib/posts";
+import { getAuthor } from "../authors";
+import { Author } from "../author";
 
 export async function generateMetadata(
   {
@@ -26,15 +28,14 @@ export default async function Page({
 }) {
   const { id } = await params;
   const postData = await getPostData(id);
-  const date = postData.date?.toLocaleDateString();
+  const author = getAuthor(postData.author);
   return (
-    <AppPage title={postData.title} subTitle={postData.subtitle}>
-      {date && (
-        <>
-          {date}
-          <br />
-        </>
-      )}
+    <AppPage
+      title={postData.title}
+      subTitle={postData.subtitle}
+      date={postData.date}
+      header={<Author author={author} />}
+    >
       <postData.Markdown />
     </AppPage>
   );

@@ -9,6 +9,7 @@ export interface PostData {
   date?: Date;
   title: string;
   subtitle?: string;
+  author?: string;
   id: string;
   Markdown: FC;
 }
@@ -17,13 +18,13 @@ type HeaderData = {
   date?: string;
   title: string;
   subtitle?: string;
+  author?: string;
 };
 
-function getHeader({ title, date, subtitle }: HeaderData) {
+function getHeader({ date, ...props }: HeaderData) {
   return {
-    title,
-    subtitle,
     date: getDate(date),
+    ...props,
   };
 }
 

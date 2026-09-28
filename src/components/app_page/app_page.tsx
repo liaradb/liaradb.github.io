@@ -11,7 +11,9 @@ export const AppPage: FC<{
   children?: ReactNode | ReactNode[];
   title: string;
   subTitle?: string;
-}> = ({ children, title, subTitle }) => {
+  date?: Date;
+  header?: ReactNode;
+}> = ({ children, title, subTitle, date, header }) => {
   return (
     <>
       <Box>
@@ -21,7 +23,18 @@ export const AppPage: FC<{
         <AppBreadcrumbs />
         <Typography variant="h1">{title}</Typography>
         {subTitle && <Typography variant="h5">{subTitle}</Typography>}
+        {date && (
+          <Typography variant="body2">{date.toLocaleDateString()}</Typography>
+        )}
       </Box>
+      {Boolean(header) && (
+        <>
+          <Divider />
+          <Box component={Container} paddingY={2}>
+            {header}
+          </Box>
+        </>
+      )}
       <Divider />
       <Box
         component={Container}
