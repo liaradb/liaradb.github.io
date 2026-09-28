@@ -1,5 +1,12 @@
 import { FC } from "react";
-import { Box, Card, CardActions, CardContent, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardActions,
+  CardContent,
+  Chip,
+  Typography,
+} from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
 
 import { LinkButton } from "@/components";
@@ -22,15 +29,24 @@ export const BlogItem: FC<{
       <Box component={CardContent} flexGrow={1}>
         <Typography variant="h6">{title}</Typography>
         <Typography variant="body1">{subtitle}</Typography>
-        <Typography variant="body2">{date?.toLocaleDateString()}</Typography>
       </Box>
       <Box
         component={CardActions}
         display="flex"
         alignItems="center"
-        justifyContent="end"
+        justifyContent="space-between"
         gap={1}
       >
+        {date && (
+          <Box
+            display="flex"
+            flexDirection="row"
+            alignItems="end"
+            justifyContent="end"
+          >
+            <Chip label={date.toLocaleDateString()} variant="outlined" />
+          </Box>
+        )}
         <LinkButton
           color="info"
           size="medium"
