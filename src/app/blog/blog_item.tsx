@@ -1,18 +1,10 @@
-"use client";
-
 import { FC } from "react";
-import Link from "next/link";
-import {
-  Box,
-  Card,
-  CardActionArea,
-  CardContent,
-  Chip,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardContent, Chip, Typography } from "@mui/material";
 
 import { AuthorSmall } from "./author_small";
 import { getAuthor } from "./authors";
+import { Header } from "./header";
+import { LinkCardActionArea } from "./link_card_action_area";
 
 export const BlogItem: FC<{
   date: Date | undefined;
@@ -28,19 +20,9 @@ export const BlogItem: FC<{
       display="flex"
       flexDirection="column"
       flex={"1 0 calc(50% - 8px)"}
-      key={href}
       component={Card}
     >
-      <CardActionArea
-        LinkComponent={Link}
-        href={href}
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          flexGrow: 1,
-          alignItems: "stretch",
-        }}
-      >
+      <LinkCardActionArea href={href}>
         <Header />
         <Box
           component={CardContent}
@@ -74,24 +56,7 @@ export const BlogItem: FC<{
             )}
           </Box>
         </Box>
-      </CardActionArea>
+      </LinkCardActionArea>
     </Box>
   );
 };
-
-const Header = () => (
-  <Box
-    sx={{
-      width: "100%",
-      height: 200,
-      backgroundColor: "#000",
-    }}
-    display="flex"
-    alignItems="center"
-    justifyContent="center"
-  >
-    <Typography variant="h2" component="span">
-      LiaraDB
-    </Typography>
-  </Box>
-);
