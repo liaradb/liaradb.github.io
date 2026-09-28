@@ -22,9 +22,7 @@ export function Blog() {
           View all
         </LinkButton>
       </Box>
-      <Box display="flex" flexDirection="row" gap={2} flexWrap="wrap">
-        <Entries max={2} />
-      </Box>
+      <Entries max={2} cols={2} />
     </>
   );
 }

@@ -11,12 +11,8 @@ export const BlogItem: FC<{
   title: string;
 }> = ({ date, href, title, subtitle }) => {
   return (
-    <Box
-      flex={"1 0 calc(50% - 8px)"}
-      key={href}
-      component={Card}
-      minWidth={400}
-    >
+    <Box flex={"1 0 calc(50% - 8px)"} key={href} component={Card}>
+      <Header />
       <CardContent>
         <Typography variant="h6">{title}</Typography>
         <Typography variant="body1">{subtitle}</Typography>
@@ -41,3 +37,20 @@ export const BlogItem: FC<{
     </Box>
   );
 };
+
+const Header = () => (
+  <Box
+    sx={{
+      width: "100%",
+      height: 200,
+      backgroundColor: "#000",
+    }}
+    display="flex"
+    alignItems="center"
+    justifyContent="center"
+  >
+    <Typography variant="h2" component="span">
+      LiaraDB
+    </Typography>
+  </Box>
+);
