@@ -11,13 +11,19 @@ export const BlogItem: FC<{
   title: string;
 }> = ({ date, href, title, subtitle }) => {
   return (
-    <Box flex={"1 0 calc(50% - 8px)"} key={href} component={Card}>
+    <Box
+      display="flex"
+      flexDirection="column"
+      flex={"1 0 calc(50% - 8px)"}
+      key={href}
+      component={Card}
+    >
       <Header />
-      <CardContent>
+      <Box component={CardContent} flexGrow={1}>
         <Typography variant="h6">{title}</Typography>
         <Typography variant="body1">{subtitle}</Typography>
         <Typography variant="body2">{date?.toLocaleDateString()}</Typography>
-      </CardContent>
+      </Box>
       <Box
         component={CardActions}
         display="flex"
