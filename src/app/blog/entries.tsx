@@ -23,6 +23,7 @@ export const Entries: FC<{ max?: number; cols?: 2 | 3 }> = ({
                 href={`./blog/${e.id}`}
                 title={e.title}
                 subtitle={e.subtitle}
+                author={e.author}
               />
             </Grid>
           );

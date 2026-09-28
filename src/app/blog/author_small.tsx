@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Author as AuthorType } from "./authors";
 import { Avatar, Box, Typography } from "@mui/material";
 
-export const Author: FC<{ author: AuthorType }> = ({ author }) => {
+export const AuthorSmall: FC<{ author: AuthorType }> = ({ author }) => {
   return (
     <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
       <AuthorImage author={author} />
@@ -10,9 +10,6 @@ export const Author: FC<{ author: AuthorType }> = ({ author }) => {
         <Typography variant="body1" fontWeight="bold">
           {author.name}
         </Typography>
-        {author.title && (
-          <Typography variant="body2">{author.title}</Typography>
-        )}
       </Box>
     </Box>
   );

@@ -34,7 +34,7 @@ export default async function Page({
       title={postData.title}
       subTitle={postData.subtitle}
       date={postData.date}
-      header={<Author author={author} />}
+      header={author && <Author author={author} />}
     >
       <postData.Markdown />
     </AppPage>
