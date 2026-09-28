@@ -47,6 +47,7 @@ export const BlogItem: FC<{
             <Chip label={date.toLocaleDateString()} variant="outlined" />
           </Box>
         )}
+        <div />
         <LinkButton
           color="info"
           size="medium"
