@@ -1,4 +1,7 @@
 import { Lightbulb } from "@mui/icons-material";
+
+import { ColorOrange } from "@/theme";
+
 import { Topic } from "./topic";
 
 export const UseCases = () => {
@@ -12,7 +15,7 @@ export const UseCases = () => {
         "Simple reporting and analytics",
       ]}
       href="/use-cases"
-      backgroundColor="hsla(26,96%,45%,0.3)"
+      backgroundColor={ColorOrange}
     />
   );
 };

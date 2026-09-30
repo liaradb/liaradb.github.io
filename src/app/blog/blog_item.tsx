@@ -12,7 +12,8 @@ export const BlogItem: FC<{
   subtitle: string | undefined;
   title: string;
   author: string | undefined;
-}> = ({ date, href, title, subtitle, author: authorId }) => {
+  image: string | undefined;
+}> = ({ date, href, title, subtitle, author: authorId, image }) => {
   const author = getAuthor(authorId);
 
   return (
@@ -23,7 +24,7 @@ export const BlogItem: FC<{
       component={Card}
     >
       <LinkCardActionArea href={href}>
-        <Header />
+        <Header src={image} />
         <Box
           component={CardContent}
           display="flex"
@@ -31,8 +32,32 @@ export const BlogItem: FC<{
           flexGrow={1}
         >
           <Box flexGrow={1}>
-            <Typography variant="h6">{title}</Typography>
-            <Typography variant="body1">{subtitle}</Typography>
+            <Typography
+              variant="h6"
+              sx={{
+                display: "-webkit-box",
+                overflow: "hidden",
+                lineClamp: "2",
+                boxOrient: "vertical",
+                WebkitLineClamp: "2",
+                WebkitBoxOrient: "vertical",
+              }}
+            >
+              {title}
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                display: "-webkit-box",
+                overflow: "hidden",
+                lineClamp: "3",
+                boxOrient: "vertical",
+                WebkitLineClamp: "3",
+                WebkitBoxOrient: "vertical",
+              }}
+            >
+              {subtitle}
+            </Typography>
           </Box>
           <Box
             display="flex"

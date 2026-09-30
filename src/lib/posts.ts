@@ -10,6 +10,7 @@ export interface PostData {
   title: string;
   subtitle?: string;
   author?: string;
+  image?: string;
   id: string;
   Markdown: FC;
 }

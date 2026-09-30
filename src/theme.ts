@@ -1,6 +1,11 @@
 "use client";
 import { createTheme } from "@mui/material/styles";
 
+export const ColorDark = "hsla(253,16%,7%,1)";
+export const ColorPurple = "hsla(265,96%,27%,0.5)";
+export const ColorOrange = "hsla(26,96%,45%,0.3)";
+export const ColorBlue = "hsla(225,39%,30%,1)";
+
 const theme = createTheme({
   palette: {
     mode: "dark",

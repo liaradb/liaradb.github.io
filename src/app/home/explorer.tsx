@@ -1,4 +1,7 @@
 import { Terminal } from "@mui/icons-material";
+
+import { ColorBlue } from "@/theme";
+
 import { Topic } from "./topic";
 
 export const Explorer = () => {
@@ -8,7 +11,7 @@ export const Explorer = () => {
       icon={<Terminal />}
       items={["VSCode Extension", "Manage your instances", "Query your data"]}
       href="/explorer"
-      backgroundColor="hsla(225,39%,30%,1)"
+      backgroundColor={ColorBlue}
     />
   );
 };
