@@ -1,7 +1,7 @@
 import { GitHub, LinkedIn } from "@mui/icons-material";
 import { Box, IconButton } from "@mui/material";
 
-import { Docker } from "../icons";
+import { Docker, Substack } from "../icons";
 
 export const HeaderIcons = () => {
   return (
@@ -21,6 +21,14 @@ export const HeaderIcons = () => {
         title="Docker Hub"
       >
         <Docker />
+      </IconButton>
+      <IconButton
+        LinkComponent="a"
+        href="https://liaradb.substack.com"
+        target="_blank"
+        title="Substack"
+      >
+        <Substack />
       </IconButton>
       <IconButton
         LinkComponent="a"
