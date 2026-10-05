@@ -1,4 +1,5 @@
 import { Metadata, ResolvingMetadata } from "next";
+import { notFound } from "next/navigation";
 
 import { AppPage, appTitle } from "@/components";
 import { getAllPostIds, getPostData } from "@/lib/posts";
@@ -28,6 +29,11 @@ export default async function Page({
 }) {
   const { id } = await params;
   const postData = await getPostData(id);
+
+  if (postData.status === "draft") {
+    return notFound();
+  }
+
   const author = getAuthor(postData.author);
   return (
     <AppPage
