@@ -1,0 +1,171 @@
+---
+title: "Value Objects in Go"
+subtitle: "They smell good"
+author: "sjohnson"
+date: "2026-10-05"
+---
+
+Using primitive values like `string` and `int` seems simple and familiar.  We know how to use them in methods and struct fields.  They are the building blocks of everything we create.  They are obvious.  But they are also perhaps too simple, as they don't contain any behavior.
+
+Thus, we explore exactly how behavior is attached to these primitives.  Using Object Oriented Programming, we will use these primitives to unlock the first step of Domain Driven Design.
+
+# What is "Primitive Obsession"?
+
+Imagine you have some data structure, perhaps for a Book.  It should have the common fields, like `Title`, `AuthorIDs`, `ISBN`, etc.  You might want to store it in a database, so you use simple `string` types in public fields.
+
+Let's say it looks like this.
+
+``` go
+type Book struct {
+	ID              string
+	ISBN10          string
+	ISBN13          string
+	Title           string
+	Subtitle        string
+	AuthorIDs       []string
+	PublisherID     string
+	PublicationDate string
+}
+```
+
+At first glance, this seems really nice to use.  If you want to store a `Title`, you just assign a new `string` value, and then persist it.  The same goes for setting the `Subtitle` or `PublisherID`.  That's so simple!  Of course, the `AuthorIDs` are a little harder, since it's a slice, but still, nothing you can't handle.
+
+## Ambiguous types
+
+But, let's fast forward to writing methods, and see what happens.  Let's say we have some method `SetTitleInformation` whichs sets both the `Title` and `Subtitle` in one call.
+
+``` go
+func (b *Book) SetTitleInformation(title string, subtitle string) {
+	b.Title = title
+	b.Subtitle = subtitle
+}
+```
+
+This seems reasonable.  Simply call `b.SetTitleInformation("Value objects", "A memoir")` to update both.  But what happens if we accidentally flip the parameters to `b.SetTitleInformation("A memoir", "Value objects")`?  Hmm, that still compiles.  We can catch it in unit tests though, so maybe it's fine?  But couldn't we also accidentally pass some other value like an `ISBN` as the `Title`?  I hope we can test for that too...
+
+## De-centralized logic
+
+Okay, let's say we have another requirement.  `Title` must not be empty.  Where do we run this validation?
+
+We could do it in the `SetTitleInformation` method.
+
+``` go
+func (b *Book) SetTitleInformation(title string, subtitle string) error {
+	t := strings.TrimSpace(title)
+	if t == "" {
+		return errors.New("title is required")
+	}
+
+	b.Title = t
+	b.Subtitle = subtitle
+}
+```
+
+But what if we have other methods to set `Title`.  We have to do that same check in each of those too.  Again, we can unit test, but now we're adding the same tests everywhere as well.
+
+``` go
+func (b *Book) SetTitle(title string) error {
+	t := strings.TrimSpace(title)
+	if t == "" {
+		return errors.New("title is required")
+	}
+
+	b.Title = t
+}
+```
+
+And couldn't we just bypass the whole thing since `Title` is public?  There's no way to test that at all.
+
+``` go
+func updateTitle() {
+    b := getBook()
+    b.Title = ""
+}
+```
+
+Hmm, it looks like `string` isn't as simple as we thought.
+
+# What exactly is a Value Object?
+
+A **Value Object** is some data where its **identity** is its **value**.  Furthermore, it should be **immutable**.  In Go, we simply return a copy of our object instead of mutating it.
+
+A great examle is a color, like `#000000` or `#ffffff`.  That's black and white.  You can compare two values of black, and if they are the same, they are the same.
+
+Of course, we can say two `string` values are comparable, but let's change them to a `struct`.
+
+``` go
+type Color struct {
+    Red   byte
+    Green byte
+    Blue  byte
+}
+```
+
+Then, let's compare them.
+
+``` go
+func compareColors() bool {
+	black := Color{0, 0, 0}
+	white := Color{255, 255, 255}
+	return black == white
+}
+```
+
+In Go, struct equality allows us to compare these two values directly.  And so we can peek into the two colors, and know if they are the same.
+
+## Why would you use a Value Object?
+
+Let's look back at our `Book` example.  We saw two obvious problems of just using `string`.  First, a `string` is a `string`, so we can use them interchangeably, even if their purpose is different.  The second, a `string` has no behavior, so methods were all attached to `Book`.
+
+Instead, let's imagine we create a new `Title` type.  This `Title` can't be intchanged with `ISBN`, so an entire range of possible errors vanish.  Similarly, we can attach methods to `Title`.  So in our case, `Book` doesn't need to worry about the rules placed on `Title`.
+
+Let's say we have a type like this.
+
+``` go
+type Title string
+
+func NewTitle(s string) (Title, error) {
+    t := strings.TrimSpace(s)
+	if t == "" {
+		return "", errors.New("title is required")
+	}
+
+    return Title(t), nil
+}
+
+func (t Title) String() string {
+    return string(t)
+}
+```
+
+This is a simple definition of our `Title` Value Object.  We use Go's type system to attach behavior directly to a `string`.  We then have a constructor `NewTitle` which validates our parameter, and only returns a `Title` if it's valid.  We also have a `String` method which allows us to get the `string` back out of our type.
+
+But notice, there's nothing to prevent us from just casting any `string` to this type.
+
+``` go
+invalidTitle := Title("")
+```
+
+So, let's make it a little bit stronger.
+
+
+``` go
+type Title struct {
+	value string
+}
+
+func NewTitle(s string) (Title, error) {
+	t := strings.TrimSpace(s)
+	if t == "" {
+		return "", errors.New("title is required")
+	}
+
+	return Title{t}, nil
+}
+
+func (t Title) String() string {
+	return t.value
+}
+```
+
+Now we can *only* construct a valid `Title`, and the internal implementation details are perfectly hidden.
