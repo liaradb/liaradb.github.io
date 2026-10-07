@@ -17,7 +17,7 @@ export const MdxSyntaxPre: FC<{ children: string | string[] }> = ({
       position="relative"
     >
       <CopyContextProvider>
-        {children}
+        <Box overflow="auto">{children}</Box>
         <Box position="absolute" top={0} right={0}>
           <CopyButton />
         </Box>
