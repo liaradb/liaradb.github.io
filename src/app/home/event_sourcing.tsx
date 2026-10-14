@@ -4,17 +4,17 @@ import { ColorOrange } from "@/theme";
 
 import { Topic } from "./topic";
 
-export const UseCases = () => {
+export const EventSourcing = () => {
   return (
     <Topic
-      title="Use cases"
+      title="Event Sourcing"
       icon={<Lightbulb />}
       items={[
         "Domain Driven Design",
         "Event Sourcing",
         "Simple reporting and analytics",
       ]}
-      href="/use-cases"
+      href="/event-sourcing"
       backgroundColor={ColorOrange}
     />
   );

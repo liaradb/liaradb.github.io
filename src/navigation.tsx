@@ -22,7 +22,7 @@ export const navigation = [
     href: "https://docs.liaradb.com",
     icon: <Description />,
   },
-  { title: "Use cases", href: "/use-cases", icon: <Lightbulb /> },
+  { title: "Event Sourcing", href: "/event-sourcing", icon: <Lightbulb /> },
   { title: "Features", href: "/features", icon: <Build /> },
   { title: "Blog", href: "/blog", icon: <AutoStories /> },
   { title: "License", href: "/license", icon: <GppGood /> },

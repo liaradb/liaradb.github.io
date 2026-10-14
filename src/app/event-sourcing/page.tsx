@@ -2,9 +2,9 @@ import { Metadata } from "next";
 
 import { AppPage, appTitle } from "@/components";
 
-import UseCases from "./use-cases.mdx";
+import EventSourcing from "./event-sourcing.mdx";
 
-const title = "Use cases";
+const title = "Event Sourcing";
 
 export const metadata: Metadata = {
   title: appTitle(title),
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <AppPage title={title}>
-      <UseCases />
+      <EventSourcing />
     </AppPage>
   );
 }
