@@ -1,0 +1,49 @@
+---
+title: Event Sourced Aggregates
+subtitle: Now with flavor!
+date: 2026-10-18
+author: sjohnson
+---
+
+What exactly is an **Aggregate**? We hear the name **Entity** all the time, and often think of it as a single row in a database table. But this common definition misses fundamental concepts, often leading to confusing situations.
+
+In **Domain Driven Design** we have three primary objects:
+
+- **Value Object** - Immutable data whose identity is its value
+- **Entity** - Mutable data with an immutable unique identifier
+- **Aggregate** - Entity which may contain other Entities or Value Objects
+
+The **Aggregate** is also a **Transaction** boundary, meaning all of its contents are modified as a single unit. It is loaded, modified, and stored as a whole.
+
+# Business Invariants
+
+**Transactions** in database systems ensure that changes happen according to **ACID** (atomicity, consistency, isolation, durability) rules. This effectively means that multiple changes wrapped in a **Transaction** will succeed or fail together.
+
+This prevents cases where some changes are applied and others don't complete. For example, if money needs to be transferred between two accounts, it must be removed from one and added to another successfully. If half of that process fails, money either vanishes or is duplicated, either of which is a problem.
+
+This is a **Business Invariant**, a rule which must be strictly enforced for the system to be valid.
+
+An **Aggregate** contains multiple **Entities** which must be maintained consistently together in order to satisfy a **Business Invariant**.
+
+# Event Streams
+
+Let's start with our base Entity struct. It has an `ID` and `Version`, which specify the identifier of the Aggregat
+
+```go
+type Entity[T comparable] struct {
+    id      T
+    version Version
+    events  []Event
+}
+
+func NewEntity[T comparable](id T, version Version) *Entity {
+    return &Entity[T]{
+        id:      id,
+        version: version,
+    }
+}
+
+func (e *Entity[T]) ID() T            { return e.id }
+func (e *Entity[T]) Version() Version { return e.version }
+func (e *Entity[T]) Events() []Event  { return e.events }
+```
