@@ -15,9 +15,16 @@
         "node_modules": true,
         "next-env.d.ts": true
     },
+    "[md]": {
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.wordWrap": "on",
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "[mdx]": {
         "editor.formatOnPaste": true,
         "editor.formatOnSave": true,
-        "editor.wordWrap": "on"
+        "editor.wordWrap": "on",
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }
